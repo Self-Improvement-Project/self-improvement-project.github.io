@@ -1,2 +1,7 @@
-# self-improvement-project.github.io
-website
+# Self Improvement Project
+Lawrence McLelland
+
+
+### Directories
+- `docs`
+public built webpage
