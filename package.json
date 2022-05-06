@@ -25,7 +25,7 @@
   },
   "scripts": {
     "start": "react-scripts start",
-    "build": "react-scripts build && mv build/* docs/",
+    "build": "rm -rf build || true && rm -rf docs || true && mkdir docs && react-scripts build && mv build/* docs/ && rm -rf build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
