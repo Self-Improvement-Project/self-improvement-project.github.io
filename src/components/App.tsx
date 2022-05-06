@@ -1,4 +1,5 @@
-import { Box, Button, Container, Grid } from "@mui/material";
+import { GitHub } from "@mui/icons-material";
+import { Box, Button, Container, Grid, IconButton } from "@mui/material";
 // import BookIcon from '@mui/icons-material/Book';
 import React from 'react';
 import '../styles/App.css';
@@ -107,6 +108,12 @@ const App = () => {
                 Patreon
               </Button>
             </Box>
+
+          <IconButton
+            href="https://github.com/Self-Improvement-Project/self-improvement-project.github.io"
+          >
+            <GitHub />
+          </IconButton>
 
         </header>
       </Container>
