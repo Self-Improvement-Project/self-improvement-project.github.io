@@ -1,4 +1,4 @@
-import { GitHub } from "@mui/icons-material";
+import { GitHub, Twitter, YouTube } from "@mui/icons-material";
 import { Box, Button, Container, Grid, IconButton } from "@mui/material";
 // import BookIcon from '@mui/icons-material/Book';
 import React from 'react';
@@ -109,12 +109,23 @@ const App = () => {
               </Button>
             </Box>
 
-          <IconButton
-            href="https://github.com/Self-Improvement-Project/self-improvement-project.github.io"
-          >
-            <GitHub />
-          </IconButton>
-
+          <Box>
+            <IconButton
+                href="https://twitter.com/lawrence__mcl"
+            >
+              <Twitter />
+            </IconButton>
+            <IconButton
+                href="https://www.youtube.com/channel/UCSENKoMvOBCNtHJF0SP4znA"
+            >
+              <YouTube />
+            </IconButton>
+            <IconButton
+              href="https://github.com/Self-Improvement-Project/self-improvement-project.github.io"
+            >
+              <GitHub />
+            </IconButton>
+          </Box>
         </header>
       </Container>
     </div>
