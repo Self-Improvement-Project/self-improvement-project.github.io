@@ -1,7 +1,6 @@
 import { Box, Button, Container, Grid } from "@mui/material";
-import BookIcon from '@mui/icons-material/Book';
+// import BookIcon from '@mui/icons-material/Book';
 import React from 'react';
-// import logo from '../../res/logo.svg';
 import '../styles/App.css';
 
 const size = 3;
