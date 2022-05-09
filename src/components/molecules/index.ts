@@ -1,5 +1,7 @@
-import Title from './Title';
-import LinkButtons from './LinkButtons';
-import Footer from './Footer';
+import Footer from "./Footer";
+import LinkButtons from "./LinkButtons";
+import RadioStatementsCarousel from "./RadioStatementsCarousel";
+import Title from "./Title";
 
-export { Title, LinkButtons, Footer };
+
+export { Title, LinkButtons, Footer, RadioStatementsCarousel };
