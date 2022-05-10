@@ -1,4 +1,4 @@
-import { ArrowRightAltRounded } from "@mui/icons-material";
+import { ArrowForward } from "@mui/icons-material";
 import { Box } from "@mui/material";
 import { CSSProperties } from "react";
 import { Link } from "react-router-dom";
@@ -44,7 +44,7 @@ const BlogStub = (props: Props) => (
 		</p>
 		<Link to={`${ROUTES.ARTICLES}/${props.blog.id}`} style={styles.UnderlinedLink}>
 			Continue Reading
-			<ArrowRightAltRounded/>
+			<ArrowForward/>
 		</Link>
 		<Box style={styles.subtext}>
 			<Logo size="sm"/>

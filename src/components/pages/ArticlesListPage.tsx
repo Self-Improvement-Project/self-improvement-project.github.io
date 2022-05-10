@@ -100,7 +100,6 @@ const ArticlesListPage = () => {
 					<BlogStub key={article.id} blog={article}/>
 				))
 			}
-
 		</Container>
 	);
 };

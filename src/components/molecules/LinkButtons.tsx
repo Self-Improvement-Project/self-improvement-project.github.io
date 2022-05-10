@@ -1,4 +1,4 @@
-import { Book } from "@mui/icons-material";
+import { MenuBook } from "@mui/icons-material";
 import { Box, Button } from "@mui/material";
 import { CSSProperties } from "react";
 
@@ -153,7 +153,7 @@ const LinkButtons = ({style}: { style?: CSSProperties }) => (
 				variant="contained"
 				style={buttonStyles.ArticlesButton}
 				href={ARTICLES_LINK}
-				endIcon={<Book/>}
+				endIcon={<MenuBook/>}
 			>
 				Articles
 			</Button>
