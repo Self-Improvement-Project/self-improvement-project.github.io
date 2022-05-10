@@ -70,7 +70,6 @@ const ArticlePage = () => {
 	useEffect(() => {
 		const pathname = window.location.pathname;
 		const articleId = pathname.replace(`${ROUTES.ARTICLES}/`, "");
-		console.log(articleId);
 		if (isValidBlogId(articleId)) {
 			setBlog(articleId as IARTICLE_ID);
 		} else {
