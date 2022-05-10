@@ -1,5 +1,5 @@
+import { Book } from "@mui/icons-material";
 import { Box, Button } from "@mui/material";
-// import BookIcon from '@mui/icons-material/Book';
 import { CSSProperties } from "react";
 
 
@@ -56,6 +56,11 @@ const buttonStyles: Record<string, CSSProperties> = {
 		backgroundColor: "#a04e9f",
 		...styles.SpacedOut,
 		...styles.LightClick
+	},
+	ArticlesButton: {
+		backgroundColor: "#2cb3cb",
+		...styles.SpacedOut,
+		...styles.LightClick
 	}
 };
 
@@ -65,12 +70,13 @@ const PODCAST_LINK = "https://open.spotify.com/show/3N9B0UClf9l8SDtgDMH1EU";
 const TWITTER_LINK = "https://twitter.com/lawrence__mcl";
 const EMAIL_LINK = "https://sunny-painter-2539.ck.page/";
 const SELF_LED_ONLINE_COURSE_LINK = "https://lawrencemcl.gumroad.com/l/JSZyK?_ga=2.255189960.1104408546.1637501051-2090084602.1632476918&_gl=1*ipzws7*_ga*MjA5MDA4NDYwMi4xNjMyNDc2OTE4*_ga_6LJN6D94N6*MTYzNzYwMzQzNi4xMy4xLjE2Mzc2MDM0NDAuMA..";
-const ONE_TO_ONE_COACHING_LINK = "https://lawrenceselfimprove.wordpress.com/2021/10/30/8-week-wake-up-coaching-program/";
-const STORY_SO_FAR_LINK = "https://lawrenceselfimprove.wordpress.com/2021/10/27/my-story-so-far/";
+const ONE_TO_ONE_COACHING_LINK = "/articles/Eight-Week-Wake-Up-Coaching-Program";
+const STORY_SO_FAR_LINK = "/articles/My-Story-So-Far";
 const PATREON_LINK = "https://www.patreon.com/tsip";
+const ARTICLES_LINK = "/articles";
 
-const LinkButtons = () => (
-	<>
+const LinkButtons = ({style}: { style?: CSSProperties }) => (
+	<div style={style}>
 		<Box>
 			<Button
 				variant="contained"
@@ -143,8 +149,16 @@ const LinkButtons = () => (
 			>
 				Patreon
 			</Button>
+			<Button
+				variant="contained"
+				style={buttonStyles.ArticlesButton}
+				href={ARTICLES_LINK}
+				endIcon={<Book/>}
+			>
+				Articles
+			</Button>
 		</Box>
-	</>
+	</div>
 );
 
 export default LinkButtons;
