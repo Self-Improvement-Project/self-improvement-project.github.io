@@ -19,7 +19,7 @@ these things are the holy grail.
 Yet how are we as a species full of depression, anxiety, dependence on medication and addiction to just survive day to
 day?
 
-Look, I’m not saying achievement is futile. Far from it it. But should it be the nucleus of us and our lives? I believe
+Look, I’m not saying achievement is futile. Far from it. But should it be the nucleus of us and our lives? I believe
 it should be more of a choice.
 
 Think of the egomaniacs that rule the world. Politicians to tech giants. Household names. And this is the problem.
