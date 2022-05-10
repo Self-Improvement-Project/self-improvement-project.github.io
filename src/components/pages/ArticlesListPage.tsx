@@ -11,7 +11,7 @@ const styles: Record<string, CSSProperties> = {
 		// backgroundColor: '#f6f6f6'
 		textAlign: "left"
 	},
-	Dropdown: {
+	AlignDown: {
 		alignSelf: "end"
 	}
 };
@@ -74,7 +74,7 @@ const ArticlesListPage = () => {
 			<Title/>
 			{/*<Logo size="sm"/>*/}
 			<Grid container spacing={2} style={{marginBottom: 10}}>
-				<Grid item xs={5}>
+				<Grid item xs={5} style={styles.AlignDown}>
 					<h3> Articles </h3>
 				</Grid>
 				<Grid item xs={5} style={{textAlign: "right"}}>
@@ -89,7 +89,7 @@ const ArticlesListPage = () => {
 						onChange={(e) => setFilterText(e.target.value)}
 					/>
 				</Grid>
-				<Grid item xs={1} style={styles.Dropdown}>
+				<Grid item xs={1} style={styles.AlignDown}>
 					<DropdownButton title="Sort" menuVariant="dark" variant="secondary"
 					                onSelect={e => setSortBy(e as unknown as ISortOption)}>
 						{
