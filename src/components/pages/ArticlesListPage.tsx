@@ -10,6 +10,9 @@ const styles: Record<string, CSSProperties> = {
 	Container: {
 		// backgroundColor: '#f6f6f6'
 		textAlign: "left"
+	},
+	Dropdown: {
+		alignSelf: "end"
 	}
 };
 
@@ -71,7 +74,7 @@ const ArticlesListPage = () => {
 			<Title/>
 			{/*<Logo size="sm"/>*/}
 			<Grid container spacing={2} style={{marginBottom: 10}}>
-				<Grid item xs={4}>
+				<Grid item xs={5}>
 					<h3> Articles </h3>
 				</Grid>
 				<Grid item xs={5} style={{textAlign: "right"}}>
@@ -79,12 +82,14 @@ const ArticlesListPage = () => {
 						id="outlined-basic"
 						label="Filter"
 						variant="standard"
-						style={{height: 3}}
+						style={{marginTop: 0}}
 						value={filterText}
+						size="small"
+						margin="dense"
 						onChange={(e) => setFilterText(e.target.value)}
 					/>
 				</Grid>
-				<Grid item xs={1}>
+				<Grid item xs={1} style={styles.Dropdown}>
 					<DropdownButton title="Sort" menuVariant="dark" variant="secondary"
 					                onSelect={e => setSortBy(e as unknown as ISortOption)}>
 						{
