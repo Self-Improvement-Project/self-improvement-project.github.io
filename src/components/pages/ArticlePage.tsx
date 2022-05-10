@@ -1,8 +1,9 @@
-import { ArrowBack, ArrowForward, MenuBook } from "@mui/icons-material";
+import { AccessTime, ArrowBack, ArrowForward, MenuBook, Person } from "@mui/icons-material";
 import { Button, Container } from "@mui/material";
 import { CSSProperties, useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { ARTICLE_IDS, Blogs, getBlog, IARTICLE_ID } from "../../articles";
+import { ARTICLE_IDS, Blogs, DEFAULT_AUTHOR, getBlog, IARTICLE_ID } from "../../articles";
+import { simpleDate } from "../../utils";
 import { ROUTES } from "../App";
 import { Logo, Markdown, Title } from "../molecules";
 
@@ -29,6 +30,17 @@ const styles: Record<string, CSSProperties> = {
 		margin: 5,
 		color: "#9d9d9d",
 		borderColor: "#9d9d9d"
+	},
+	details: {
+		textAlign: "center",
+		overflow: "hidden",
+		width: "auto",
+		color: "#737373",
+		marginTop: 40,
+		marginBottom: 10
+	},
+	detailIcon: {
+		marginLeft: 10
 	}
 };
 
@@ -91,6 +103,10 @@ const ArticlePage = () => {
                             <Markdown
                                 file={getBlog(blog)}
                             />
+                            <div style={styles.details}>
+                                <Person style={styles.detailIcon}/> {getBlog(blog).author || DEFAULT_AUTHOR}
+                                <AccessTime style={styles.detailIcon}/> {simpleDate(getBlog(blog).createdAt)}
+                            </div>
                             <div style={styles.centered}>
                                 <Button
                                     variant="outlined"

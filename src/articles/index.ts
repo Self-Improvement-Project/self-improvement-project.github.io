@@ -1,8 +1,15 @@
+import An_Identity_Prison from "./An_Identity_Prison.md";
+import Be_More_Thankful from "./Be_More_Thankful.md";
+import Be_The_Uplifter from "./Be_The_Uplifter.md";
+import Becoming_A_Good_Friend_To_Yourself from "./Becoming_A_Good_Friend_To_Yourself.md";
 import Eight_Week_Wake_Up_Coaching_Program from "./Eight_Week_Wake_Up_Coaching_Program.md";
 import Find_Better_Happiness from "./Find_Better_Happiness.md";
 import My_Story_So_Far from "./My_Story_So_Far.md";
+import Self_Awareness_For_Working_Adults from "./Self_Awareness_For_Working_Adults.md";
+import The_Simple_Life from "./The_Simple_Life.md";
 import Two_Ways_That_Will_Help_You_Let_Go from "./Two_Ways_That_Will_Help_You_Let_Go.md";
 import Whats_Wrong_With_Just_Existing from "./Whats_Wrong_With_Just_Existing.md";
+import Who_Do_You_Really_Want_To_Be from "./Who_Do_You_Really_Want_To_Be.md";
 
 
 export const DEFAULT_AUTHOR = "Lawrence McLelland";
@@ -12,7 +19,14 @@ export const ARTICLE_IDS = [
 	"Find-Better-Happiness",
 	"Two-Ways-That-Will-Help-You-Let-Go",
 	"My-Story-So-Far",
-	"Whats-Wrong-With-Just-Existing"
+	"Whats-Wrong-With-Just-Existing",
+	"Self-Awareness-For-Working-Adults",
+	"Who-Do-You-Really-Want-To-Be",
+	"An-Identity-Prison",
+	"Becoming-A-Good-Friend-To-Yourself",
+	"Be-The-Uplifter",
+	"Be-More-Thankful",
+	"The-Simple-Life"
 ] as const;
 
 // convert namesArr into string literal union type
@@ -72,6 +86,73 @@ export const Blogs: IBlog[] = [
 			"existence.",
 		data: Whats_Wrong_With_Just_Existing,
 		createdAt: new Date(2022, 4, 26)
+	},
+	{
+		id: "Self-Awareness-For-Working-Adults",
+		title: "Self awareness for working adults – is this it?",
+		excerpt: "I’ve got it! All this nonsense I spit every day is mostly applicable for… " +
+			"working adults. Why? Because we aren’t taught how to live as a working adult in any " +
+			"formal education setting.",
+		data: Self_Awareness_For_Working_Adults,
+		createdAt: new Date(2022, 4, 24)
+	},
+	{
+		id: "Who-Do-You-Really-Want-To-Be",
+		title: "Who Do You Really Want To Be?",
+		excerpt: "I’ve realised I don’t use this platform to tell you what to do, I use it to help " +
+			"you think more clearly. So today, we’re going to look at a few questions that will help " +
+			"us get there a bit quicker.",
+		data: Who_Do_You_Really_Want_To_Be,
+		createdAt: new Date(2022, 4, 19)
+	},
+	{
+		id: "An-Identity-Prison",
+		title: "An Identity Prison",
+		excerpt: "Here’s one to whet your appetite before tomorrows workshop. More likely than not, " +
+			"you are imprisoned. Imprisoned by society. Imprisoned by the Joneses. And imprisoned by " +
+			"yourself. But from the outside it doesn’t look that way.",
+		data: An_Identity_Prison,
+		createdAt: new Date(2022, 4, 9)
+	},
+	{
+		id: "Becoming-A-Good-Friend-To-Yourself",
+		title: "Becoming a Good Friend to Yourself",
+		excerpt: "Self doubt. Imposter syndrome. Self criticism. And this cycle is continuous if we " +
+			"don’t step in and stop it. There will be the usual highs and lows in life, these will never " +
+			"not exist. However, those 3 things I just referred to should be a rarity, not a constant.",
+		data: Becoming_A_Good_Friend_To_Yourself,
+		createdAt: new Date(2022, 4, 6)
+	},
+	{
+		id: "Be-The-Uplifter",
+		title: "Be the Uplifter",
+		excerpt: "Most of the online advice gurus say we have to be the best. Thee person to know and " +
+			"go to. And this has not sat well with me for a while. Number one from a values point of " +
+			"view; Success is subjective to many people. Unhealthy and uncontrollable (if not manipulative) " +
+			"pressure to become some sort of version of success is the only option. Despite so many things " +
+			"in life depending on luck, you must make yourself miserable during the process.",
+		data: Be_The_Uplifter,
+		createdAt: new Date(2022, 4, 3)
+	},
+	{
+		id: "Be-More-Thankful",
+		title: "Be More Thankful",
+		excerpt: "“Gratitude turns what we have into enough.” Timing is obviously always important as " +
+			"well as overuse, but gratitude can be one of the closest things humans have to a superpower. " +
+			"21st century living conditions on average across the globe are the highest they have ever been. " +
+			"Which gives us more reason to use gratitude when we’re acting spoilt.",
+		data: Be_More_Thankful,
+		createdAt: new Date(2022, 4, 2)
+	},
+	{
+		id: "The-Simple-Life",
+		title: "The Simple Life",
+		excerpt: "How many of you feel obliged to keep up with social expectations as opposed to simplifying " +
+			"your life? Keeping up and displaying social norms is a part of every day life. Behave a certain " +
+			"way. Have similar goals and desires. Be loud and busy socially. And if not adhered to, we have the " +
+			"risk of being isolated. But today is a vote for simplicity.",
+		data: The_Simple_Life,
+		createdAt: new Date(2022, 3, 30)
 	}
 ];
 
