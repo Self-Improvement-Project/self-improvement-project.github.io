@@ -27,61 +27,48 @@ const ArticlesListPage = () => {
 	const [ sortBy, setSortBy ] = useState<ISortOption | undefined>();
 
 	const [ allArticles, setAllArticles ] = useState<IBlog[]>([]);
-	const [ filteredArticles, setFilteredArticles ] = useState<IBlog[]>([]);
 
 	// on page load
 	useEffect(() => {
 		const shuffledArticles = shuffle(Blogs);
 		setAllArticles(shuffledArticles);
-		setFilteredArticles(shuffledArticles);
 	}, []);
 
-	// on filter or sort
-	useEffect(() => {
-		// console.log({sortBy});
-		if (filterText !== "") {
-			setFilteredArticles(
-				allArticles.filter((article) => {
-					return article.title.toLowerCase().includes(filterText) ||
-						article.excerpt.toLowerCase().includes(filterText);
-				})
-			);
-		}
+	const filtered = (articles: IBlog[]): IBlog[] =>
+		articles.filter((article) =>
+			article.title.toLowerCase().includes(filterText.toLowerCase()) ||
+			article.excerpt.toLowerCase().includes(filterText.toLowerCase())
+		);
+
+	const sorted = (articles: IBlog[]): IBlog[] => {
 		if (sortBy) {
 			if (sortBy === "Chronologically") {
-				console.log("chron");
-				setFilteredArticles(
-					allArticles.sort((a, b) => {
-						return a.createdAt.getTime() - b.createdAt.getTime();
-					})
+				return articles.sort((a, b) =>
+					a.createdAt.getTime() - b.createdAt.getTime()
 				);
 			} else if (sortBy === "Reverse-Chronologically") {
-				setFilteredArticles(
-					allArticles.sort((a, b) => {
-						return b.createdAt.getTime() - a.createdAt.getTime();
-					})
+				return articles.sort((a, b) =>
+					b.createdAt.getTime() - a.createdAt.getTime()
 				);
 			} else if (sortBy === "Alphabetically") {
-				setFilteredArticles(
-					allArticles.sort((a, b) => {
-						return a.title < b.title ? 1 : -1;
-					})
+				return articles.sort((a, b) =>
+					a.title < b.title ? -1 : 1
 				);
 			} else if (sortBy === "Reverse-Alphabetically") {
-				setFilteredArticles(
-					allArticles.sort((a, b) => {
-						return a.title < b.title ? -1 : 1;
-					})
+				return articles.sort((a, b) =>
+					a.title < b.title ? 1 : -1
 				);
+			} else {
+				return articles;
 			}
+		} else {
+			return articles;
 		}
-	}, [ filterText, sortBy ]);
+	};
 
 	return (
 		<Container maxWidth="md" style={styles.Container}>
 			<Title/>
-			{/*<h1> {filterText} </h1>*/}
-			{/*<h1> {sortBy} </h1>*/}
 			{/*<Logo size="sm"/>*/}
 			<Grid container spacing={2} style={{marginBottom: 10}}>
 				<Grid item xs={4}>
@@ -106,14 +93,10 @@ const ArticlesListPage = () => {
 							))
 						}
 					</DropdownButton>
-					{/*<SortButton*/}
-					{/*	value=""*/}
-					{/*	onChange={}*/}
-					{/*/>*/}
 				</Grid>
 			</Grid>
 			{
-				filteredArticles.map((article) => (
+				sorted(filtered(allArticles)).map((article) => (
 					<BlogStub key={article.id} blog={article}/>
 				))
 			}
