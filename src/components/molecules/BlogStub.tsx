@@ -17,7 +17,8 @@ const styles: Record<string, CSSProperties> = {
 		backgroundColor: "#eeeeee"
 	},
 	subtext: {
-		color: "#757575"
+		color: "#757575",
+		fontSize: 14
 	},
 	Link: {
 		color: "black",
