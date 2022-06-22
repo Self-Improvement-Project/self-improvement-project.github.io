@@ -43,6 +43,8 @@ export default function PrimarySearchAppBar() {
         setMobileMoreAnchorEl(event.currentTarget);
     };
 
+    const numberNewArticles = 10;
+
     const menuId = "primary-search-account-menu";
     const renderMenu = (
         <Menu
@@ -85,10 +87,10 @@ export default function PrimarySearchAppBar() {
             <MenuItem>
                 <IconButton
                     size="large"
-                    aria-label="show 17 new notifications"
+                    aria-label={`${numberNewArticles} new notifications`}
                     color="inherit"
                 >
-                    <Badge badgeContent={17} color="error">
+                    <Badge badgeContent={numberNewArticles} color="warning">
                         <NotificationsIcon/>
                     </Badge>
                 </IconButton>
@@ -113,10 +115,10 @@ export default function PrimarySearchAppBar() {
                     <Box sx={{display: {xs: "none", md: "flex"}}}>
                         <IconButton
                             size="large"
-                            aria-label="show 17 new notifications"
+                            aria-label={`${numberNewArticles} new notifications`}
                             color="inherit"
                         >
-                            <Badge badgeContent={17} color="warning">
+                            <Badge badgeContent={numberNewArticles} color="warning">
                                 <NotificationsIcon/>
                             </Badge>
                         </IconButton>

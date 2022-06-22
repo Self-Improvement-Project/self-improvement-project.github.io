@@ -20,7 +20,8 @@ const SORT_OPTIONS = [
 	"Chronologically",
 	"Reverse-Chronologically",
 	"Alphabetically",
-	"Reverse-Alphabetically"
+	"Reverse-Alphabetically",
+	"Random"
 ] as const;
 type ISortOption = typeof SORT_OPTIONS[number];
 
@@ -33,8 +34,8 @@ const ArticlesListPage = () => {
 
 	// on page load
 	useEffect(() => {
-		const shuffledArticles = shuffle(Blogs);
-		setAllArticles(shuffledArticles);
+		setAllArticles(Blogs);
+		setSortBy("Reverse-Chronologically");
 	}, []);
 
 	const filtered = (articles: IBlog[]): IBlog[] =>
@@ -61,13 +62,21 @@ const ArticlesListPage = () => {
 				return articles.sort((a, b) =>
 					a.title < b.title ? 1 : -1
 				);
+			} else if (sortBy === "Random") {
+				return articles.sort((a, b) =>
+					a.title < b.title ? 1 : -1
+				);
 			} else {
-				return articles;
+				return shuffle(articles);
 			}
 		} else {
 			return articles;
 		}
 	};
+
+	const isNew = (articleId: string) => {
+		return true;
+	}
 
 	return (
 		<Container maxWidth="md" style={styles.Container}>
@@ -102,7 +111,11 @@ const ArticlesListPage = () => {
 			</Grid>
 			{
 				sorted(filtered(allArticles)).map((article) => (
-					<BlogStub key={article.id} blog={article}/>
+					<BlogStub
+						key={article.id}
+						blog={article}
+						new={isNew(article.id)}
+					/>
 				))
 			}
 		</Container>
