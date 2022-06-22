@@ -4,6 +4,7 @@ import Footer from "./Footer";
 import LinkButtons from "./LinkButtons";
 import Logo from "./Logo";
 import Markdown from "./Markdown";
+import Navbar from "./Navbar";
 import RadioStatementsCarousel from "./RadioStatementsCarousel";
 import SortButton from "./SortButton";
 import Title from "./Title";
@@ -18,5 +19,6 @@ export {
 	BlogStub,
 	Markdown,
 	Logo,
-	SortButton
+	SortButton,
+	Navbar
 };
