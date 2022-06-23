@@ -1,16 +1,16 @@
 import { Container, Grid, TextField } from "@mui/material";
-import { CSSProperties, useEffect, useState } from "react";
+import { CSSProperties, useEffect, useMemo, useState } from "react";
 import { Dropdown, DropdownButton } from "react-bootstrap";
 import { useSelector } from "react-redux";
+import { useLocation, useNavigate } from "react-router-dom";
 import { Blogs, IBlog } from "../../articles";
 import { selectSeenArticles } from "../../redux/selectors";
-import { shuffle } from "../../utils";
 import { BlogStub, Title } from "../molecules";
+import { ARTICLES_LINK } from "../molecules/LinkButtons";
 
 
 const styles: Record<string, CSSProperties> = {
     Container: {
-        // backgroundColor: '#f6f6f6'
         textAlign: "left"
     },
     AlignDown: {
@@ -18,30 +18,42 @@ const styles: Record<string, CSSProperties> = {
     }
 };
 
-const SORT_OPTIONS = [
+const ARTICLE_SORT_OPTIONS = [
     "Chronologically",
     "Reverse-Chronologically",
     "Alphabetically",
     "Reverse-Alphabetically",
     "Unread",
-    "Read",
-    "Random"
+    "Read"
 ] as const;
-type ISortOption = typeof SORT_OPTIONS[number];
+export type IArticleSortOption = typeof ARTICLE_SORT_OPTIONS[number];
 
 const ArticlesListPage = () => {
 
     const [ filterText, setFilterText ] = useState("");
-    const [ sortBy, setSortBy ] = useState<ISortOption | undefined>();
+    const [ sortBy, setSortBy ] = useState<IArticleSortOption | undefined>();
+    const [ sortMethod, setSortMethod ] = useState<IArticleSortOption>("Reverse-Chronologically");
 
     const [ allArticles, setAllArticles ] = useState<IBlog[]>([]);
     const seenArticles = useSelector(selectSeenArticles);
+    const navigate = useNavigate();
+    const location = useLocation();
 
     // on page load
     useEffect(() => {
         setAllArticles(Blogs);
-        setSortBy("Reverse-Chronologically");
     }, []);
+
+    useEffect(() => {
+        if (sortBy) {
+            navigate(ARTICLES_LINK, {state: {sort: sortBy}});
+        }
+    }, [ sortBy ]);
+
+    useEffect(() => {
+        const sortMethod = (location.state as any).sort;
+        setSortMethod(sortMethod);
+    }, [ location ]);
 
     const filtered = (articles: IBlog[]): IBlog[] =>
         articles.filter((article) =>
@@ -49,36 +61,32 @@ const ArticlesListPage = () => {
             article.excerpt.toLowerCase().includes(filterText.toLowerCase())
         );
 
-    const sorted = (articles: IBlog[]): IBlog[] => {
-        if (sortBy) {
-            if (sortBy === "Chronologically") {
+    const sorted = (articles: IBlog[], sortedBy: IArticleSortOption): IBlog[] => {
+        if (sortedBy) {
+            if (sortedBy === "Chronologically") {
                 return articles.sort((a, b) =>
                     a.createdAt.getTime() - b.createdAt.getTime()
                 );
-            } else if (sortBy === "Reverse-Chronologically") {
+            } else if (sortedBy === "Reverse-Chronologically") {
                 return articles.sort((a, b) =>
                     b.createdAt.getTime() - a.createdAt.getTime()
                 );
-            } else if (sortBy === "Alphabetically") {
+            } else if (sortedBy === "Alphabetically") {
                 return articles.sort((a, b) =>
                     a.title < b.title ? -1 : 1
                 );
-            } else if (sortBy === "Reverse-Alphabetically") {
+            } else if (sortedBy === "Reverse-Alphabetically") {
                 return articles.sort((a, b) =>
                     a.title < b.title ? 1 : -1
                 );
-            } else if (sortBy === "Read") {
+            } else if (sortedBy === "Read") {
                 return articles.filter((a) =>
                     seenArticles.includes(a.id)
                 );
-            } else if (sortBy === "Unread") {
+            } else if (sortedBy === "Unread") {
                 return articles.filter((a) =>
                     !seenArticles.includes(a.id)
                 );
-            } else if (sortBy === "Random") {
-                setAllArticles(shuffle(articles));
-                setSortBy(undefined);
-                return articles;
             } else {
                 return articles;
             }
@@ -86,6 +94,13 @@ const ArticlesListPage = () => {
             return articles;
         }
     };
+
+    const sortedFilteredArticles = useMemo(() => {
+        const filteredArticles = filtered(allArticles);
+        console.log(filteredArticles.length);
+        console.log(sortMethod);
+        return sorted(filteredArticles, sortMethod);
+    }, [ allArticles, filterText, sortMethod ]);
 
     return (
         <Container maxWidth="md" style={styles.Container}>
@@ -109,9 +124,9 @@ const ArticlesListPage = () => {
                 </Grid>
                 <Grid item xs={1} style={styles.AlignDown}>
                     <DropdownButton title="Sort" menuVariant="dark" variant="secondary"
-                                    onSelect={e => setSortBy(e as unknown as ISortOption)}>
+                                    onSelect={e => setSortBy(e as unknown as IArticleSortOption)}>
                         {
-                            SORT_OPTIONS.map((option) => (
+                            ARTICLE_SORT_OPTIONS.map((option) => (
                                 <Dropdown.Item key={option} eventKey={option}>{option}</Dropdown.Item>
                             ))
                         }
@@ -119,7 +134,7 @@ const ArticlesListPage = () => {
                 </Grid>
             </Grid>
             {
-                sorted(filtered(allArticles)).map((article) => (
+                sortedFilteredArticles.map((article) => (
                     <BlogStub
                         key={article.id}
                         blog={article}

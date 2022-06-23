@@ -11,7 +11,7 @@ import Toolbar from "@mui/material/Toolbar";
 import * as React from "react";
 import { CSSProperties, useMemo } from "react";
 import { useSelector } from "react-redux";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { Blogs } from "../../articles";
 import { selectSeenArticles } from "../../redux/selectors";
 import { ARTICLES_LINK } from "./LinkButtons";
@@ -73,6 +73,13 @@ export default () => {
         </Menu>
     );
 
+    const linkToUnreadArticles = () => {
+        navigate(ARTICLES_LINK, {state: {sort: "Unread"}});
+    };
+    const linkToArticles = () => {
+        navigate(ARTICLES_LINK, {state: {sort: "Reverse-Chronologically"}});
+    };
+
     const mobileMenuId = "primary-search-account-menu-mobile";
     const renderMobileMenu = (
         <Menu
@@ -90,11 +97,12 @@ export default () => {
             open={isMobileMenuOpen}
             onClose={handleMobileMenuClose}
         >
-            <MenuItem>
+            <MenuItem onClick={linkToUnreadArticles}>
                 <IconButton
                     size="large"
                     aria-label={`${numUnseenArticles} new notifications`}
                     color="inherit"
+                    onClick={linkToUnreadArticles}
                 >
                     <Badge badgeContent={numUnseenArticles} color="warning">
                         <NotificationsIcon/>
@@ -104,6 +112,7 @@ export default () => {
             </MenuItem>
         </Menu>
     );
+    const navigate = useNavigate();
 
     return (
         <Box sx={{flexGrow: 1}}>
@@ -112,17 +121,20 @@ export default () => {
                     <Link to={"/"} style={{color: "white", textDecoration: "none"}}>
                         <Logo size={"sm"} style={styles.Logo}/>
                     </Link>
-                    <Link to={ARTICLES_LINK}>
-                        <IconButton size="large" style={{color: "#f3f3f3", textDecoration: "none"}}>
-                            <MenuBookTwoTone/>
-                        </IconButton>
-                    </Link>
+                    <IconButton
+                        size="large"
+                        onClick={linkToArticles}
+                        style={{color: "#f3f3f3", textDecoration: "none"}}
+                    >
+                        <MenuBookTwoTone/>
+                    </IconButton>
                     <Box sx={{flexGrow: 1}}/>
                     <Box sx={{display: {xs: "none", md: "flex"}}}>
                         <IconButton
                             size="large"
                             aria-label={`${numUnseenArticles} new notifications`}
                             color="inherit"
+                            onClick={linkToUnreadArticles}
                         >
                             <Badge badgeContent={numUnseenArticles} color="warning">
                                 <NotificationsIcon/>
