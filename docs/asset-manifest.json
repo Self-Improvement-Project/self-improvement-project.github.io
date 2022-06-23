@@ -1,13 +1,15 @@
 {
   "files": {
     "main.css": "/static/css/main.b46989a2.css",
-    "main.js": "/static/js/main.73672a28.js",
+    "main.js": "/static/js/main.0c1f2a47.js",
     "static/js/787.9e0c1f39.chunk.js": "/static/js/787.9e0c1f39.chunk.js",
     "static/media/white-simple-podcast-review-instagram-story.png": "/static/media/white-simple-podcast-review-instagram-story.2aecf85edb3609f9bccd.png",
     "static/media/white-simple-podcast-review-instagram-story-2.png": "/static/media/white-simple-podcast-review-instagram-story-2.338cc06d2701c5d6216a.png",
     "static/media/white-simple-podcast-review-instagram-story-1.png": "/static/media/white-simple-podcast-review-instagram-story-1.32f812e3a21cee92d249.png",
     "static/media/self-improvement-project_text_transparent.png": "/static/media/self-improvement-project_text_transparent.97fb12995568aa8d13ea.png",
     "static/media/self-improvement-project-transparent.png": "/static/media/self-improvement-project-transparent.e00c2566a6eed4eb027a.png",
+    "static/media/patreon-dark.png": "/static/media/patreon-dark.7d32533390d5488b1b0c.png",
+    "static/media/spotify-white.png": "/static/media/spotify-white.ef90575892546bbdfade.png",
     "static/media/Eight_Week_Wake_Up_Coaching_Program.md": "/static/media/Eight_Week_Wake_Up_Coaching_Program.2d80d86bf4a85c46270f.md",
     "static/media/Be_More_Thankful.md": "/static/media/Be_More_Thankful.8dbb533c33a87aed26cd.md",
     "static/media/Be_The_Uplifter.md": "/static/media/Be_The_Uplifter.df43cca83facf9f4296b.md",
@@ -22,11 +24,11 @@
     "static/media/The_Simple_Life.md": "/static/media/The_Simple_Life.cc436a0edaebd4f2943a.md",
     "index.html": "/index.html",
     "main.b46989a2.css.map": "/static/css/main.b46989a2.css.map",
-    "main.73672a28.js.map": "/static/js/main.73672a28.js.map",
+    "main.0c1f2a47.js.map": "/static/js/main.0c1f2a47.js.map",
     "787.9e0c1f39.chunk.js.map": "/static/js/787.9e0c1f39.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.b46989a2.css",
-    "static/js/main.73672a28.js"
+    "static/js/main.0c1f2a47.js"
   ]
 }
