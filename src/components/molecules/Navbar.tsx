@@ -1,3 +1,4 @@
+// import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { MenuBookTwoTone } from "@mui/icons-material";
 import MoreIcon from "@mui/icons-material/MoreVert";
 import NotificationsIcon from "@mui/icons-material/Notifications";
@@ -10,11 +11,14 @@ import MenuItem from "@mui/material/MenuItem";
 import Toolbar from "@mui/material/Toolbar";
 import * as React from "react";
 import { CSSProperties, useMemo } from "react";
+import { Image } from "react-bootstrap";
 import { useSelector } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
 import { Blogs } from "../../articles";
 import { selectSeenArticles } from "../../redux/selectors";
-import { ARTICLES_LINK } from "./LinkButtons";
+import spotifyDark from "../../resources/spotify-dark.png";
+import spotifyWhite from "../../resources/spotify-white.png";
+import { ARTICLES_LINK, PODCAST_LINK } from "./LinkButtons";
 import Logo from "./Logo";
 
 
@@ -22,6 +26,17 @@ const styles: Record<string, CSSProperties> = {
     Logo: {
         marginRight: 20,
         cursor: "pointer"
+    },
+    Undecorated: {
+        textDecoration: "none"
+    },
+    LightClick: {
+        color: "#f3f3f3",
+        textDecoration: "none"
+    },
+    DarkClick: {
+        color: "#3d3d3d",
+        textDecoration: "none"
     }
 };
 
@@ -97,17 +112,13 @@ export default () => {
             open={isMobileMenuOpen}
             onClose={handleMobileMenuClose}
         >
+            <MenuItem onClick={() => window.location.href = PODCAST_LINK}>
+                <Image src={spotifyDark} width={25} height={25}/>
+            </MenuItem>
             <MenuItem onClick={linkToUnreadArticles}>
-                <IconButton
-                    size="large"
-                    aria-label={`${numUnseenArticles} new notifications`}
-                    color="inherit"
-                    onClick={linkToUnreadArticles}
-                >
-                    <Badge badgeContent={numUnseenArticles} color="warning">
-                        <NotificationsIcon/>
-                    </Badge>
-                </IconButton>
+                <Badge badgeContent={numUnseenArticles} color="warning">
+                    <NotificationsIcon/>
+                </Badge>
             </MenuItem>
         </Menu>
     );
@@ -117,18 +128,26 @@ export default () => {
         <Box sx={{flexGrow: 1}}>
             <AppBar position="static">
                 <Toolbar>
-                    <Link to={"/"} style={{color: "white", textDecoration: "none"}}>
+                    <Link to={"/"} style={styles.Undecorated}>
                         <Logo size={"sm"} style={styles.Logo}/>
                     </Link>
                     <IconButton
                         size="large"
                         onClick={linkToArticles}
-                        style={{color: "#f3f3f3", textDecoration: "none"}}
+                        style={styles.LightClick}
                     >
                         <MenuBookTwoTone/>
                     </IconButton>
                     <Box sx={{flexGrow: 1}}/>
                     <Box sx={{display: {xs: "none", md: "flex"}}}>
+                        <IconButton
+                            size="large"
+                            aria-label="spotify"
+                            style={styles.LightClick}
+                            href={PODCAST_LINK}
+                        >
+                            <Image src={spotifyWhite} width={25} height={25}/>
+                        </IconButton>
                         <IconButton
                             size="large"
                             aria-label={`${numUnseenArticles} new notifications`}

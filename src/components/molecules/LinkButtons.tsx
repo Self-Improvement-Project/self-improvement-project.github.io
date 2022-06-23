@@ -1,4 +1,3 @@
-import { MenuBookTwoTone } from "@mui/icons-material";
 import { Box, Button } from "@mui/material";
 import { CSSProperties } from "react";
 
@@ -64,15 +63,17 @@ const buttonStyles: Record<string, CSSProperties> = {
     }
 };
 
-const EBOOK_LINK = "https://lawrencemcl.gumroad.com/l/uIpgy";
-const YOUTUBE_LINK = "https://www.youtube.com/channel/UCSENKoMvOBCNtHJF0SP4znA";
-const PODCAST_LINK = "https://open.spotify.com/show/3N9B0UClf9l8SDtgDMH1EU";
-const TWITTER_LINK = "https://twitter.com/lawrence__mcl";
-const EMAIL_LINK = "https://sunny-painter-2539.ck.page/";
-const SELF_LED_ONLINE_COURSE_LINK = "https://lawrencemcl.gumroad.com/l/JSZyK?_ga=2.255189960.1104408546.1637501051-2090084602.1632476918&_gl=1*ipzws7*_ga*MjA5MDA4NDYwMi4xNjMyNDc2OTE4*_ga_6LJN6D94N6*MTYzNzYwMzQzNi4xMy4xLjE2Mzc2MDM0NDAuMA..";
-const ONE_TO_ONE_COACHING_LINK = "/articles/Eight-Week-Wake-Up-Coaching-Program";
-const STORY_SO_FAR_LINK = "/articles/My-Story-So-Far";
-const PATREON_LINK = "https://www.patreon.com/tsip";
+export const EBOOK_LINK = "https://lawrencemcl.gumroad.com/l/uIpgy";
+export const YOUTUBE_LINK = "https://www.youtube.com/channel/UCSENKoMvOBCNtHJF0SP4znA";
+export const PODCAST_LINK = "https://open.spotify.com/show/3N9B0UClf9l8SDtgDMH1EU";
+export const TWITTER_LINK = "https://twitter.com/lawrence__mcl";
+export const EMAIL_LINK = "https://sunny-painter-2539.ck.page/";
+export const EMAIL = "lawrence.selfimprove@gmail.com";
+export const SELF_LED_ONLINE_COURSE_LINK = "https://lawrencemcl.gumroad.com/l/JSZyK?_ga=2.255189960.1104408546.1637501051-2090084602.1632476918&_gl=1*ipzws7*_ga*MjA5MDA4NDYwMi4xNjMyNDc2OTE4*_ga_6LJN6D94N6*MTYzNzYwMzQzNi4xMy4xLjE2Mzc2MDM0NDAuMA..";
+export const ONE_TO_ONE_COACHING_LINK = "/articles/Eight-Week-Wake-Up-Coaching-Program";
+export const STORY_SO_FAR_LINK = "/articles/My-Story-So-Far";
+export const PATREON_LINK = "https://www.patreon.com/tsip";
+export const GITHUB_LINK = "https://github.com/Self-Improvement-Project/self-improvement-project.github.io";
 export const ARTICLES_LINK = "/articles";
 
 const LinkButtons = ({style}: { style?: CSSProperties }) => (
@@ -86,35 +87,35 @@ const LinkButtons = ({style}: { style?: CSSProperties }) => (
             >
                 Free Ebook
             </Button>
-            <Button
-                variant="contained"
-                style={buttonStyles.YoutubeButton}
-                href={YOUTUBE_LINK}
-            >
-                YouTube
-            </Button>
+            {/*<Button*/}
+            {/*    variant="contained"*/}
+            {/*    style={buttonStyles.YoutubeButton}*/}
+            {/*    href={YOUTUBE_LINK}*/}
+            {/*>*/}
+            {/*    YouTube*/}
+            {/*</Button>*/}
 
-            <Button
-                variant="contained"
-                style={buttonStyles.PodcastButton}
-                href={PODCAST_LINK}
-            >
-                Podcast
-            </Button>
-            <Button
-                variant="contained"
-                style={buttonStyles.TwitterButton}
-                href={TWITTER_LINK}
-            >
-                Twitter
-            </Button>
+            {/*<Button*/}
+            {/*    variant="contained"*/}
+            {/*    style={buttonStyles.PodcastButton}*/}
+            {/*    href={PODCAST_LINK}*/}
+            {/*>*/}
+            {/*    Podcast*/}
+            {/*</Button>*/}
+            {/*<Button*/}
+            {/*    variant="contained"*/}
+            {/*    style={buttonStyles.TwitterButton}*/}
+            {/*    href={TWITTER_LINK}*/}
+            {/*>*/}
+            {/*    Twitter*/}
+            {/*</Button>*/}
 
             <Button
                 variant="contained"
                 style={buttonStyles.EmailButton}
                 href={EMAIL_LINK}
             >
-                Email
+                Newsletter
             </Button>
 
             <Button
@@ -142,21 +143,21 @@ const LinkButtons = ({style}: { style?: CSSProperties }) => (
             >
                 Story So Far...
             </Button>
-            <Button
-                variant="contained"
-                style={buttonStyles.PatreonButton}
-                href={PATREON_LINK}
-            >
-                Patreon
-            </Button>
-            <Button
-                variant="contained"
-                style={buttonStyles.ArticlesButton}
-                href={ARTICLES_LINK}
-                endIcon={<MenuBookTwoTone/>}
-            >
-                Articles
-            </Button>
+            {/*<Button*/}
+            {/*    variant="contained"*/}
+            {/*    style={buttonStyles.PatreonButton}*/}
+            {/*    href={PATREON_LINK}*/}
+            {/*>*/}
+            {/*    Patreon*/}
+            {/*</Button>*/}
+            {/*<Button*/}
+            {/*    variant="contained"*/}
+            {/*    style={buttonStyles.ArticlesButton}*/}
+            {/*    href={ARTICLES_LINK}*/}
+            {/*    endIcon={<MenuBookTwoTone/>}*/}
+            {/*>*/}
+            {/*    Articles*/}
+            {/*</Button>*/}
         </Box>
     </div>
 );

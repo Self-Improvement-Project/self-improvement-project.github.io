@@ -1,6 +1,11 @@
 import { EmailRounded, GitHub, Twitter, YouTube } from "@mui/icons-material";
 import { Box, IconButton } from "@mui/material";
+import * as React from "react";
 import { CSSProperties } from "react";
+import { Image } from "react-bootstrap";
+import patreonDark from "../../resources/patreon-dark.png";
+import spotifyDark from "../../resources/spotify-dark.png";
+import { EMAIL, GITHUB_LINK, PATREON_LINK, PODCAST_LINK, TWITTER_LINK, YOUTUBE_LINK } from "./LinkButtons";
 
 
 const styles: Record<string, CSSProperties> = {
@@ -26,25 +31,37 @@ const Footer = () => (
 		</span>
         <IconButton
             style={styles.DarkClick}
-            href="mailto:lawrence.selfimprove@gmail.com"
+            href={PODCAST_LINK}
         >
-            <EmailRounded/>
+            <Image src={spotifyDark} width={22} height={22}/>
         </IconButton>
         <IconButton
             style={styles.DarkClick}
-            href="https://twitter.com/lawrence__mcl"
-        >
-            <Twitter/>
-        </IconButton>
-        <IconButton
-            style={styles.DarkClick}
-            href="https://www.youtube.com/channel/UCSENKoMvOBCNtHJF0SP4znA"
+            href={YOUTUBE_LINK}
         >
             <YouTube/>
         </IconButton>
         <IconButton
             style={styles.DarkClick}
-            href="https://github.com/Self-Improvement-Project/self-improvement-project.github.io"
+            href={PATREON_LINK}
+        >
+            <Image src={patreonDark} width={20} height={20}/>
+        </IconButton>
+        <IconButton
+            style={styles.DarkClick}
+            href={`mailto:${EMAIL}`}
+        >
+            <EmailRounded/>
+        </IconButton>
+        <IconButton
+            style={styles.DarkClick}
+            href={TWITTER_LINK}
+        >
+            <Twitter/>
+        </IconButton>
+        <IconButton
+            style={styles.DarkClick}
+            href={GITHUB_LINK}
         >
             <GitHub/>
         </IconButton>
