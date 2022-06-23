@@ -14,7 +14,9 @@ const styles: Record<string, CSSProperties> = {
     Box: {
         marginBottom: 20,
         textAlign: "left",
-        border: "15px solid #eeeeee",
+        border: "1px solid",
+        borderColor: "#b7b7b7",
+        padding: 14,
         borderRadius: 15,
         backgroundColor: "#eeeeee"
     },
