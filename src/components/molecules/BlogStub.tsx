@@ -16,7 +16,7 @@ const styles: Record<string, CSSProperties> = {
         textAlign: "left",
         border: "1px solid",
         borderColor: "#b7b7b7",
-        padding: 14,
+        padding: "14px 14px 0 14px",
         borderRadius: 15,
         backgroundColor: "#eeeeee"
     },
