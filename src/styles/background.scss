@@ -1,0 +1,55 @@
+$animation-duration: 600s;
+$background-color: #f9f9f9;
+$bubble-size: 20vmin;
+$bubble-count: 20;
+$bubble-colors: (
+        #f3f3f3, //#E45A84,
+  //#FFACAC
+);
+
+//body {
+//  margin: 0;
+//  overflow: hidden;
+//}
+
+.background {
+  z-index: -100;
+  width: 100vw;
+  height: 100vh;
+  background: $background-color;
+}
+
+.background .bubble {
+  width: $bubble-size;
+  height: $bubble-size;
+  border-radius: $bubble-size;
+  backface-visibility: hidden;
+  position: absolute;
+  animation-name: move;
+  animation-duration: $animation-duration;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+
+  @for $i from 1 through $bubble-count {
+    &:nth-child(#{$i}) {
+      color: nth($bubble-colors, random(length($bubble-colors)));
+      top: random(100) * 1%;
+      left: random(100) * 1%;
+      animation-duration: (random($animation-duration * 10) / 10) * 1s + 10s;
+      animation-delay: random(($animation-duration + 10s) * 10) / 10 * -1s;
+      transform-origin: (random(50) - 25) * 1vw (random(50) - 25) * 1vh;
+      //$blurRadius: (random() + 0.5) * $particleSize * 0.5;
+      $x: if(random() > 0.5, -1, 1);
+      //box-shadow: ($particleSize * 2 * $x) 0 $blurRadius currentColor;
+      background-color: currentColor;
+      width: ($bubble-size * 2 * $x) + px;
+      height: ($bubble-size * 2 * $x) + px;
+    }
+  }
+}
+
+@keyframes move {
+  100% {
+    transform: translate3d(0, 0, 1px) rotate(360deg);
+  }
+}
