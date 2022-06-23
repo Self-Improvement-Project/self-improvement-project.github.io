@@ -1,8 +1,10 @@
 import { AccessTime, ArrowBack, ArrowForward, MenuBook, Person } from "@mui/icons-material";
 import { Button, Container } from "@mui/material";
 import { CSSProperties, useEffect, useState } from "react";
+import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { ARTICLE_IDS, Blogs, DEFAULT_AUTHOR, getBlog, IARTICLE_ID } from "../../articles";
+import { markSeenArticle } from "../../redux/actions";
 import { simpleDate } from "../../utils";
 import { ROUTES } from "../App";
 import { Markdown } from "../molecules";
@@ -83,11 +85,17 @@ const ArticlePage = () => {
         return sortedArticles[currentIndex + 1].id;
     };
 
+    const dispatch = useDispatch();
+    const markSeenArticleFn = (articleId: string) => {
+        dispatch(markSeenArticle(articleId));
+    };
+
     useEffect(() => {
         const pathname = window.location.pathname;
         const articleId = pathname.replace(`${ROUTES.ARTICLES}/`, "");
         if (isValidBlogId(articleId)) {
             setBlog(articleId as IARTICLE_ID);
+            markSeenArticleFn(articleId);
         } else {
             navigate(ROUTES.ARTICLES);
         }

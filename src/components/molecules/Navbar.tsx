@@ -9,8 +9,11 @@ import Menu from "@mui/material/Menu";
 import MenuItem from "@mui/material/MenuItem";
 import Toolbar from "@mui/material/Toolbar";
 import * as React from "react";
-import { CSSProperties } from "react";
+import { CSSProperties, useMemo } from "react";
+import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
+import { Blogs } from "../../articles";
+import { selectSeenArticles } from "../../redux/selectors";
 import { ARTICLES_LINK } from "./LinkButtons";
 import Logo from "./Logo";
 
@@ -22,7 +25,7 @@ const styles: Record<string, CSSProperties> = {
     }
 };
 
-export default function PrimarySearchAppBar() {
+export default () => {
     const [ anchorEl, setAnchorEl ] = React.useState<null | HTMLElement>(null);
     const [ mobileMoreAnchorEl, setMobileMoreAnchorEl ] =
         React.useState<null | HTMLElement>(null);
@@ -43,7 +46,10 @@ export default function PrimarySearchAppBar() {
         setMobileMoreAnchorEl(event.currentTarget);
     };
 
-    const numberNewArticles = 10;
+    const seenArticles = useSelector(selectSeenArticles);
+    const numUnseenArticles = useMemo(() => {
+        return Blogs.length - seenArticles.length;
+    }, [ seenArticles ]);
 
     const menuId = "primary-search-account-menu";
     const renderMenu = (
@@ -87,10 +93,10 @@ export default function PrimarySearchAppBar() {
             <MenuItem>
                 <IconButton
                     size="large"
-                    aria-label={`${numberNewArticles} new notifications`}
+                    aria-label={`${numUnseenArticles} new notifications`}
                     color="inherit"
                 >
-                    <Badge badgeContent={numberNewArticles} color="warning">
+                    <Badge badgeContent={numUnseenArticles} color="warning">
                         <NotificationsIcon/>
                     </Badge>
                 </IconButton>
@@ -115,10 +121,10 @@ export default function PrimarySearchAppBar() {
                     <Box sx={{display: {xs: "none", md: "flex"}}}>
                         <IconButton
                             size="large"
-                            aria-label={`${numberNewArticles} new notifications`}
+                            aria-label={`${numUnseenArticles} new notifications`}
                             color="inherit"
                         >
-                            <Badge badgeContent={numberNewArticles} color="warning">
+                            <Badge badgeContent={numUnseenArticles} color="warning">
                                 <NotificationsIcon/>
                             </Badge>
                         </IconButton>
