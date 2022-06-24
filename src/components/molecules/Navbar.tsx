@@ -12,12 +12,14 @@ import Toolbar from "@mui/material/Toolbar";
 import * as React from "react";
 import { CSSProperties, useMemo } from "react";
 import { Image } from "react-bootstrap";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
 import { Blogs } from "../../articles";
-import { selectSeenArticles } from "../../redux/selectors";
+import { markLastSeenSpotify } from "../../redux/actions";
+import { selectLastSeenSpotifyDate, selectSeenArticles } from "../../redux/selectors";
 import spotifyDark from "../../resources/spotify-dark.png";
 import spotifyWhite from "../../resources/spotify-white.png";
+import { dayDifference, now } from "../../utils";
 import { ARTICLES_LINK, PODCAST_LINK } from "./LinkButtons";
 import Logo from "./Logo";
 
@@ -62,9 +64,27 @@ export default () => {
     };
 
     const seenArticles = useSelector(selectSeenArticles);
+    const lastSeenSpotify = useSelector(selectLastSeenSpotifyDate);
+
     const numUnseenArticles = useMemo(() => {
         return Blogs.length - seenArticles.length;
     }, [ seenArticles ]);
+
+    const numUnseenSpotifyTracks = useMemo(() => {
+        const MAX_AMOUNT = 30;
+        const RATE_PER_WEEK = 3;
+        if (lastSeenSpotify !== null) {
+            const daysSince = dayDifference(lastSeenSpotify);
+            const uploadedDaysSince = Math.floor(daysSince * RATE_PER_WEEK / 7.0);
+            if (daysSince > MAX_AMOUNT) {
+                return MAX_AMOUNT;
+            } else {
+                return uploadedDaysSince;
+            }
+        } else {
+            return MAX_AMOUNT;
+        }
+    }, [ lastSeenSpotify ]);
 
     const menuId = "primary-search-account-menu";
     const renderMenu = (
@@ -95,6 +115,11 @@ export default () => {
         navigate(ARTICLES_LINK, {state: {sort: "Reverse-Chronologically"}});
     };
 
+    const dispatch = useDispatch();
+    const setLastSeenSpotifyFn = () => {
+        dispatch(markLastSeenSpotify(now()));
+    };
+
     const mobileMenuId = "primary-search-account-menu-mobile";
     const renderMobileMenu = (
         <Menu
@@ -112,8 +137,13 @@ export default () => {
             open={isMobileMenuOpen}
             onClose={handleMobileMenuClose}
         >
-            <MenuItem onClick={() => window.location.href = PODCAST_LINK}>
-                <Image src={spotifyDark} width={25} height={25}/>
+            <MenuItem onClick={() => {
+                setLastSeenSpotifyFn();
+                window.location.href = PODCAST_LINK;
+            }}>
+                <Badge badgeContent={numUnseenSpotifyTracks} color="warning">
+                    <Image src={spotifyDark} width={25} height={25}/>
+                </Badge>
             </MenuItem>
             <MenuItem onClick={linkToUnreadArticles}>
                 <Badge badgeContent={numUnseenArticles} color="warning">
@@ -144,9 +174,14 @@ export default () => {
                             size="large"
                             aria-label="spotify"
                             style={styles.LightClick}
-                            href={PODCAST_LINK}
+                            onClick={() => {
+                                setLastSeenSpotifyFn();
+                                window.location.href = PODCAST_LINK;
+                            }}
                         >
-                            <Image src={spotifyWhite} width={25} height={25}/>
+                            <Badge badgeContent={numUnseenSpotifyTracks} color="warning">
+                                <Image src={spotifyWhite} width={25} height={25}/>
+                            </Badge>
                         </IconButton>
                         <IconButton
                             size="large"
