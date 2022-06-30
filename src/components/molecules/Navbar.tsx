@@ -1,5 +1,6 @@
 import {
     ArtTrackOutlined,
+    LibraryBooks,
     LibraryBooksOutlined,
     LightbulbOutlined,
     MailOutlineRounded,
@@ -206,7 +207,7 @@ export default () => {
                                 }}
                             >
                                 <Badge badgeContent={numUnseenArticles} color="warning">
-                                    <LibraryBooksOutlined/>
+                                    <LibraryBooks/>
                                 </Badge>
                             </IconButton>
                         </Box>
