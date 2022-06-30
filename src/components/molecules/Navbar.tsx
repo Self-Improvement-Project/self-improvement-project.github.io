@@ -1,4 +1,11 @@
-import { MenuBookTwoTone, Person } from "@mui/icons-material";
+import {
+    ArtTrackOutlined,
+    LibraryBooksOutlined,
+    LightbulbOutlined,
+    MailOutlineRounded,
+    MenuBookTwoTone,
+    PersonOutlined
+} from "@mui/icons-material";
 import MenuIcon from "@mui/icons-material/Menu";
 import { Menu, MenuItem } from "@mui/material";
 import AppBar from "@mui/material/AppBar";
@@ -16,8 +23,16 @@ import { Blogs } from "../../articles";
 import { markLastSeenSpotify } from "../../redux/actions";
 import { selectLastSeenSpotifyDate, selectSeenArticles } from "../../redux/selectors";
 import spotifyWhite from "../../resources/spotify-white.png";
-import { dayDifference, now } from "../../utils";
-import { ARTICLES_LINK, PODCAST_LINK } from "./LinkButtons";
+import { dayDifference, navigateExternal, now } from "../../utils";
+import {
+    ARTICLES_LINK,
+    EBOOK_LINK,
+    NEWSLETTER_LINK,
+    ONE_TO_ONE_COACHING_LINK,
+    PODCAST_LINK,
+    SELF_LED_ONLINE_COURSE_LINK,
+    STORY_SO_FAR_LINK
+} from "./LinkButtons";
 import Logo from "./Logo";
 
 
@@ -79,13 +94,6 @@ export default () => {
         }
     }, [ lastSeenSpotify ]);
 
-    const linkToUnreadArticles = () => {
-        navigate(ARTICLES_LINK, {state: {sort: "Unread"}});
-    };
-    const linkToArticles = () => {
-        navigate(ARTICLES_LINK, {state: {sort: "Reverse-Chronologically"}});
-    };
-
     const dispatch = useDispatch();
     const setLastSeenSpotifyFn = () => {
         dispatch(markLastSeenSpotify(now()));
@@ -126,23 +134,50 @@ export default () => {
                         >
                             <StyledMenuItem
                                 onClick={() => {
-                                    linkToArticles();
-                                    handleClose();
+                                    navigate(ARTICLES_LINK, {state: {sort: "Reverse-Chronologically"}});
                                 }}
                             >
-                                <MenuBookTwoTone style={styles.MenuIcon}/>
+                                <LibraryBooksOutlined style={styles.MenuIcon}/>
                                 <MenuText> Articles </MenuText>
                             </StyledMenuItem>
                             <StyledMenuItem
                                 onClick={() => {
-                                    // STORY_SO_FAR_LINK;
+                                    navigate(STORY_SO_FAR_LINK);
                                 }}>
-                                <Person style={styles.MenuIcon}/>
+                                <PersonOutlined style={styles.MenuIcon}/>
                                 <MenuText> My Story </MenuText>
                             </StyledMenuItem>
-                            <StyledMenuItem>
+                            <StyledMenuItem
+                                onClick={() => {
+                                    navigateExternal(EBOOK_LINK);
+                                }}
+                            >
                                 <MenuBookTwoTone style={styles.MenuIcon}/>
-                                <MenuText> Articles </MenuText>
+                                <span> My Book </span>
+                            </StyledMenuItem>
+                            <StyledMenuItem
+                                onClick={() => {
+                                    navigateExternal(NEWSLETTER_LINK);
+                                }}
+                            >
+                                <MailOutlineRounded style={styles.MenuIcon}/>
+                                <span> Newsletter </span>
+                            </StyledMenuItem>
+                            <StyledMenuItem
+                                onClick={() => {
+                                    navigate(ONE_TO_ONE_COACHING_LINK);
+                                }}
+                            >
+                                <LightbulbOutlined style={styles.MenuIcon}/>
+                                <span> Life Coaching </span>
+                            </StyledMenuItem>
+                            <StyledMenuItem
+                                onClick={() => {
+                                    navigateExternal(SELF_LED_ONLINE_COURSE_LINK);
+                                }}
+                            >
+                                <ArtTrackOutlined style={styles.MenuIcon}/>
+                                <span> Online Course </span>
                             </StyledMenuItem>
                         </Menu>
                     </LeftSection>
@@ -155,7 +190,7 @@ export default () => {
                                 style={styles.LightClick}
                                 onClick={() => {
                                     setLastSeenSpotifyFn();
-                                    window.location.href = PODCAST_LINK;
+                                    navigateExternal(PODCAST_LINK);
                                 }}
                             >
                                 <Badge badgeContent={numUnseenSpotifyTracks} color="warning">
@@ -166,10 +201,12 @@ export default () => {
                                 size="large"
                                 aria-label={`${numUnseenArticles} new notifications`}
                                 color="inherit"
-                                onClick={linkToUnreadArticles}
+                                onClick={() => {
+                                    navigate(ARTICLES_LINK, {state: {sort: "Unread"}});
+                                }}
                             >
                                 <Badge badgeContent={numUnseenArticles} color="warning">
-                                    <MenuBookTwoTone/>
+                                    <LibraryBooksOutlined/>
                                 </Badge>
                             </IconButton>
                         </Box>

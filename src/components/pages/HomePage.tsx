@@ -32,8 +32,8 @@ const styles: Record<string, CSSProperties> = {
         textAlign: "center",
         paddingBottom: 25,
         backgroundColor: "#c7e6f5",
-        border: "solid 2px #CCCCCCFF",
-        borderRadius: 30,
+        border: "solid 2px #67cfff",
+        borderRadius: 15,
         padding: "20px 5px 0px 5px",
         marginBottom: 20,
         minHeight: 180
@@ -43,8 +43,8 @@ const styles: Record<string, CSSProperties> = {
         textAlign: "center",
         paddingBottom: 25,
         backgroundColor: "#f5ddc6",
-        border: "solid 2px #CCCCCCFF",
-        borderRadius: 30,
+        border: "solid 2px #ffc48a",
+        borderRadius: 15,
         padding: "20px 5px 0px 5px",
         marginBottom: 20,
         minHeight: 180
@@ -54,8 +54,8 @@ const styles: Record<string, CSSProperties> = {
         textAlign: "center",
         paddingBottom: 25,
         backgroundColor: "#eecece",
-        border: "solid 2px #CCCCCCFF",
-        borderRadius: 30,
+        border: "solid 2px #ff9c9c",
+        borderRadius: 15,
         padding: "20px 5px 0px 5px",
         marginBottom: 20
     },

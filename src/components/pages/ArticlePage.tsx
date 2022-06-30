@@ -1,9 +1,9 @@
 import { AccessTime, ArrowBack, ArrowForward, MenuBook, Person } from "@mui/icons-material";
 import { Button, Container } from "@mui/material";
-import { CSSProperties, useEffect, useState } from "react";
+import { CSSProperties, useEffect, useMemo, useState } from "react";
 import { useDispatch } from "react-redux";
-import { useNavigate } from "react-router-dom";
-import { ARTICLE_IDS, Blogs, DEFAULT_AUTHOR, getBlog, IARTICLE_ID } from "../../articles";
+import { useLocation, useNavigate } from "react-router-dom";
+import { ARTICLE_IDS, Blogs, DEFAULT_AUTHOR, getBlog, IARTICLE_ID, IBlog } from "../../articles";
 import { markSeenArticle } from "../../redux/actions";
 import { simpleDate } from "../../utils";
 import { ROUTES } from "../App";
@@ -53,18 +53,19 @@ const styles: Record<string, CSSProperties> = {
 const ARTICLES_LINK = "/articles";
 
 const ArticlePage = () => {
-    const [ blog, setBlog ] = useState<IARTICLE_ID | undefined>(undefined);
+    const [ blogId, setBlogId ] = useState<IARTICLE_ID | undefined>(undefined);
     const navigate = useNavigate();
+    const location = useLocation();
 
     const isValidBlogId = (blogId: string) =>
         ARTICLE_IDS.filter((a) => a === blogId).length !== 0;
 
-    const getPreviousBlogId = (currentBlogId: IARTICLE_ID): IARTICLE_ID | undefined => {
+    const getPreviousBlogId = (currentBlog: IBlog): IARTICLE_ID | undefined => {
         const sortedArticles = Blogs.sort((a, b) =>
             a.createdAt.getTime() - b.createdAt.getTime()
         );
         const currentIndex = sortedArticles.findIndex((article) =>
-            article.id === currentBlogId
+            article.id === currentBlog.id
         );
         if (currentIndex === 0) {
             return undefined;
@@ -72,12 +73,12 @@ const ArticlePage = () => {
         return sortedArticles[currentIndex - 1].id;
     };
 
-    const getNextBlogId = (currentBlogId: IARTICLE_ID): IARTICLE_ID | undefined => {
+    const getNextBlogId = (currentBlog: IBlog): IARTICLE_ID | undefined => {
         const sortedArticles = Blogs.sort((a, b) =>
             a.createdAt.getTime() - b.createdAt.getTime()
         );
         const currentIndex = sortedArticles.findIndex((article) =>
-            article.id === currentBlogId
+            article.id === currentBlog.id
         );
         if (currentIndex === sortedArticles.length - 1) {
             return undefined;
@@ -85,35 +86,55 @@ const ArticlePage = () => {
         return sortedArticles[currentIndex + 1].id;
     };
 
+    const renderCorrectArticle = () => {
+        const pathname = window.location.pathname;
+        const articleId = pathname.replace(`${ROUTES.ARTICLES}/`, "");
+        if (isValidBlogId(articleId)) {
+            setBlogId(articleId as IARTICLE_ID);
+            markSeenArticleFn(articleId);
+        } else {
+            navigate(ROUTES.ARTICLES);
+        }
+    };
+
     const dispatch = useDispatch();
     const markSeenArticleFn = (articleId: string) => {
         dispatch(markSeenArticle(articleId));
     };
 
+    // on page load
     useEffect(() => {
-        const pathname = window.location.pathname;
-        const articleId = pathname.replace(`${ROUTES.ARTICLES}/`, "");
-        if (isValidBlogId(articleId)) {
-            setBlog(articleId as IARTICLE_ID);
-            markSeenArticleFn(articleId);
-        } else {
-            navigate(ROUTES.ARTICLES);
-        }
+        renderCorrectArticle();
     }, []);
+
+    // on url change
+    useEffect(() => {
+        // history.go(0, 3);
+        renderCorrectArticle();
+    }, [ location ]);
+
+    // on blogId update
+    const blog = useMemo(() => {
+        if (blogId) {
+            return getBlog(blogId);
+        } else {
+            return undefined;
+        }
+    }, [ blogId ]);
 
     return (
         <Container maxWidth="md" style={styles.Container}>
             {blog &&
                 <div style={styles.Markdown}>
-                    <h3 style={styles.centeredPadded}>{getBlog(blog).title}</h3>
+                    <h3 style={styles.centeredPadded}>{blog.title}</h3>
                     <Container maxWidth={"md"}>
                         <hr/>
                         <Markdown
-                            file={getBlog(blog)}
+                            file={blog}
                         />
                         <div style={styles.details}>
-                            <Person style={styles.detailIcon}/> {getBlog(blog).author || DEFAULT_AUTHOR}
-                            <AccessTime style={styles.detailIcon}/> {simpleDate(getBlog(blog).createdAt)}
+                            <Person style={styles.detailIcon}/> {blog.author || DEFAULT_AUTHOR}
+                            <AccessTime style={styles.detailIcon}/> {simpleDate(blog.createdAt)}
                         </div>
                         <div style={styles.centered}>
                             <Button

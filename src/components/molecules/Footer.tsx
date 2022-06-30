@@ -7,7 +7,7 @@ import { useDispatch } from "react-redux";
 import { markLastSeenSpotify } from "../../redux/actions";
 import patreonDark from "../../resources/patreon-dark.png";
 import spotifyDark from "../../resources/spotify-dark.png";
-import { now } from "../../utils";
+import { navigateExternal, now } from "../../utils";
 import { EMAIL, GITHUB_LINK, PATREON_LINK, PODCAST_LINK, TWITTER_LINK, YOUTUBE_LINK } from "./LinkButtons";
 
 
@@ -41,7 +41,7 @@ const Footer = () => {
                 style={styles.DarkClick}
                 onClick={() => {
                     setLastSeenSpotifyFn();
-                    window.location.href = PODCAST_LINK;
+                    navigateExternal(PODCAST_LINK);
                 }}
             >
                 <Image src={spotifyDark} width={22} height={22}/>

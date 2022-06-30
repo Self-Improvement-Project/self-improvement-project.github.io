@@ -66,7 +66,7 @@ export const EBOOK_LINK = "https://lawrencemcl.gumroad.com/l/uIpgy";
 export const YOUTUBE_LINK = "https://www.youtube.com/channel/UCSENKoMvOBCNtHJF0SP4znA";
 export const PODCAST_LINK = "https://open.spotify.com/show/3N9B0UClf9l8SDtgDMH1EU";
 export const TWITTER_LINK = "https://twitter.com/lawrence__mcl";
-export const EMAIL_LINK = "https://sunny-painter-2539.ck.page/";
+export const NEWSLETTER_LINK = "https://sunny-painter-2539.ck.page/";
 export const EMAIL = "lawrence.selfimprove@gmail.com";
 export const SELF_LED_ONLINE_COURSE_LINK = "https://lawrencemcl.gumroad.com/l/JSZyK?_ga=2.255189960.1104408546.1637501051-2090084602.1632476918&_gl=1*ipzws7*_ga*MjA5MDA4NDYwMi4xNjMyNDc2OTE4*_ga_6LJN6D94N6*MTYzNzYwMzQzNi4xMy4xLjE2Mzc2MDM0NDAuMA..";
 export const ONE_TO_ONE_COACHING_LINK = "/articles/Eight-Week-Wake-Up-Coaching-Program";
