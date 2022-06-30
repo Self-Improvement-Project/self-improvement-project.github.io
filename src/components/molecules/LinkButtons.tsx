@@ -1,4 +1,3 @@
-import { Box, Button } from "@mui/material";
 import { CSSProperties } from "react";
 
 
@@ -78,87 +77,45 @@ export const ARTICLES_LINK = "/articles";
 
 const LinkButtons = ({style}: { style?: CSSProperties }) => (
     <div style={style}>
-        <Box>
-            <Button
-                variant="contained"
-                style={buttonStyles.EBookButton}
-                // endIcon={<BookIcon />}
-                href={EBOOK_LINK}
-            >
-                Free Ebook
-            </Button>
-            {/*<Button*/}
-            {/*    variant="contained"*/}
-            {/*    style={buttonStyles.YoutubeButton}*/}
-            {/*    href={YOUTUBE_LINK}*/}
-            {/*>*/}
-            {/*    YouTube*/}
-            {/*</Button>*/}
-
-            {/*<Button*/}
-            {/*    variant="contained"*/}
-            {/*    style={buttonStyles.PodcastButton}*/}
-            {/*    href={PODCAST_LINK}*/}
-            {/*>*/}
-            {/*    Podcast*/}
-            {/*</Button>*/}
-            {/*<Button*/}
-            {/*    variant="contained"*/}
-            {/*    style={buttonStyles.TwitterButton}*/}
-            {/*    href={TWITTER_LINK}*/}
-            {/*>*/}
-            {/*    Twitter*/}
-            {/*</Button>*/}
-
-            <Button
-                variant="contained"
-                style={buttonStyles.EmailButton}
-                href={EMAIL_LINK}
-            >
-                Newsletter
-            </Button>
-
-            <Button
-                variant="outlined"
-                style={buttonStyles.SelfLedOnlineCourseButton}
-                href={SELF_LED_ONLINE_COURSE_LINK}
-            >
-                Self Led Online Course
-            </Button>
-
-        </Box>
-        <Box>
-
-            <Button
-                variant="contained"
-                style={buttonStyles.OneToOneCoachingButton}
-                href={ONE_TO_ONE_COACHING_LINK}
-            >
-                1:1 Coaching
-            </Button>
-            <Button
-                variant="contained"
-                style={buttonStyles.StorySoFarButton}
-                href={STORY_SO_FAR_LINK}
-            >
-                Story So Far...
-            </Button>
-            {/*<Button*/}
-            {/*    variant="contained"*/}
-            {/*    style={buttonStyles.PatreonButton}*/}
-            {/*    href={PATREON_LINK}*/}
-            {/*>*/}
-            {/*    Patreon*/}
-            {/*</Button>*/}
-            {/*<Button*/}
-            {/*    variant="contained"*/}
-            {/*    style={buttonStyles.ArticlesButton}*/}
-            {/*    href={ARTICLES_LINK}*/}
-            {/*    endIcon={<MenuBookTwoTone/>}*/}
-            {/*>*/}
-            {/*    Articles*/}
-            {/*</Button>*/}
-        </Box>
+        {/*<Box>*/}
+        {/*    <Button*/}
+        {/*        variant="contained"*/}
+        {/*        style={buttonStyles.EBookButton}*/}
+        {/*        href={EBOOK_LINK}*/}
+        {/*    >*/}
+        {/*        Free Ebook*/}
+        {/*    </Button>*/}
+        {/*    <Button*/}
+        {/*        variant="contained"*/}
+        {/*        style={buttonStyles.EmailButton}*/}
+        {/*        href={EMAIL_LINK}*/}
+        {/*    >*/}
+        {/*        Newsletter*/}
+        {/*    </Button>*/}
+        {/*    <Button*/}
+        {/*        variant="outlined"*/}
+        {/*        style={buttonStyles.SelfLedOnlineCourseButton}*/}
+        {/*        href={SELF_LED_ONLINE_COURSE_LINK}*/}
+        {/*    >*/}
+        {/*        Self Led Online Course*/}
+        {/*    </Button>*/}
+        {/*</Box>*/}
+        {/*<Box>*/}
+        {/*    <Button*/}
+        {/*        variant="contained"*/}
+        {/*        style={buttonStyles.OneToOneCoachingButton}*/}
+        {/*        href={ONE_TO_ONE_COACHING_LINK}*/}
+        {/*    >*/}
+        {/*        1:1 Coaching*/}
+        {/*    </Button>*/}
+        {/*    <Button*/}
+        {/*        variant="contained"*/}
+        {/*        style={buttonStyles.StorySoFarButton}*/}
+        {/*        href={STORY_SO_FAR_LINK}*/}
+        {/*    >*/}
+        {/*        Story So Far...*/}
+        {/*    </Button>*/}
+        {/*</Box>*/}
     </div>
 );
 
