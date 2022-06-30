@@ -172,3 +172,7 @@ export const Blogs: IBlog[] = [
 ];
 
 export const getBlog = (blogId: IARTICLE_ID): IBlog => Blogs.find((blog) => blog.id === blogId)!;
+export const getRecentBlogs = (num: number) =>
+    Blogs
+        .sort((a, b) => b.createdAt.getTime() - a.createdAt.getTime())
+        .slice(0, num);
