@@ -1,8 +1,9 @@
-import { ArrowForward, Circle } from "@mui/icons-material";
+import { ArrowForward } from "@mui/icons-material";
 import { Box } from "@mui/material";
 import { CSSProperties, useMemo } from "react";
 import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
+import styled from "styled-components";
 import { DEFAULT_AUTHOR, IBlog } from "../../articles";
 import { selectSeenArticles } from "../../redux/selectors";
 import { simpleDate } from "../../utils";
@@ -33,6 +34,19 @@ const styles: Record<string, CSSProperties> = {
     }
 };
 
+const UnreadCircle = styled.div`
+  background-color: #ff9a5e;
+  display: inline-block;
+  border: 1px solid #fa721e;
+  border-radius: 50%;
+  -moz-border-radius: 50%;
+  -webkit-border-radius: 50%;
+  width: 12px;
+  height: 12px;
+  margin-right: 10px;
+  margin-bottom: 2px;
+`;
+
 interface Props {
     blog: IBlog;
 }
@@ -47,7 +61,7 @@ const BlogStub = (props: Props) => {
             <Link to={`${ROUTES.ARTICLES}/${props.blog.id}`} style={styles.Link}>
                 <h4>
                     {unseen && (
-                        <Circle style={{width: 10, height: 10, marginRight: 5, color: "#fa721e"}}/>
+                        <UnreadCircle/>
                     )}
                     {props.blog.title}
                 </h4>
