@@ -1,5 +1,5 @@
 import { EmailRounded, GitHub, Twitter, YouTube } from "@mui/icons-material";
-import { Box, IconButton } from "@mui/material";
+import { Box, IconButton, Tooltip } from "@mui/material";
 import * as React from "react";
 import { CSSProperties } from "react";
 import { Image } from "react-bootstrap";
@@ -37,45 +37,57 @@ const Footer = () => {
 		<span style={styles.copyright}>
 			@{new Date().getUTCFullYear()} The Self Improvement Project
 		</span>
-            <IconButton
-                style={styles.DarkClick}
-                onClick={() => {
-                    setLastSeenSpotifyFn();
-                    navigateExternal(PODCAST_LINK);
-                }}
-            >
-                <Image src={spotifyDark} width={22} height={22}/>
-            </IconButton>
-            <IconButton
-                style={styles.DarkClick}
-                href={YOUTUBE_LINK}
-            >
-                <YouTube/>
-            </IconButton>
-            <IconButton
-                style={styles.DarkClick}
-                href={PATREON_LINK}
-            >
-                <Image src={patreonDark} width={20} height={20}/>
-            </IconButton>
-            <IconButton
-                style={styles.DarkClick}
-                href={`mailto:${EMAIL}`}
-            >
-                <EmailRounded/>
-            </IconButton>
-            <IconButton
-                style={styles.DarkClick}
-                href={TWITTER_LINK}
-            >
-                <Twitter/>
-            </IconButton>
-            <IconButton
-                style={styles.DarkClick}
-                href={GITHUB_LINK}
-            >
-                <GitHub/>
-            </IconButton>
+            <Tooltip title="Spotify">
+                <IconButton
+                    style={styles.DarkClick}
+                    onClick={() => {
+                        setLastSeenSpotifyFn();
+                        navigateExternal(PODCAST_LINK);
+                    }}
+                >
+                    <Image src={spotifyDark} width={22} height={22}/>
+                </IconButton>
+            </Tooltip>
+            <Tooltip title="YouTube">
+                <IconButton
+                    style={styles.DarkClick}
+                    href={YOUTUBE_LINK}
+                >
+                    <YouTube/>
+                </IconButton>
+            </Tooltip>
+            <Tooltip title="Patreon">
+                <IconButton
+                    style={styles.DarkClick}
+                    href={PATREON_LINK}
+                >
+                    <Image src={patreonDark} width={20} height={20}/>
+                </IconButton>
+            </Tooltip>
+            <Tooltip title="Email">
+                <IconButton
+                    style={styles.DarkClick}
+                    href={`mailto:${EMAIL}`}
+                >
+                    <EmailRounded/>
+                </IconButton>
+            </Tooltip>
+            <Tooltip title="Twitter">
+                <IconButton
+                    style={styles.DarkClick}
+                    href={TWITTER_LINK}
+                >
+                    <Twitter/>
+                </IconButton>
+            </Tooltip>
+            <Tooltip title="Github">
+                <IconButton
+                    style={styles.DarkClick}
+                    href={GITHUB_LINK}
+                >
+                    <GitHub/>
+                </IconButton>
+            </Tooltip>
         </Box>
     );
 };

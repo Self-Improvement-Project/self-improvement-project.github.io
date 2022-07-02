@@ -8,14 +8,14 @@ import {
     PersonOutlined
 } from "@mui/icons-material";
 import MenuIcon from "@mui/icons-material/Menu";
-import { Menu, MenuItem } from "@mui/material";
+import { Menu, MenuItem, Tooltip } from "@mui/material";
 import AppBar from "@mui/material/AppBar";
 import Badge from "@mui/material/Badge";
 import Box from "@mui/material/Box";
 import IconButton from "@mui/material/IconButton";
 import Toolbar from "@mui/material/Toolbar";
 import * as React from "react";
-import { CSSProperties, useMemo } from "react";
+import { CSSProperties, useMemo, useState } from "react";
 import { Image } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
@@ -101,7 +101,7 @@ export default () => {
     };
 
     const navigate = useNavigate();
-    const [ anchorEl, setAnchorEl ] = React.useState<null | HTMLElement>(null);
+    const [ anchorEl, setAnchorEl ] = useState<null | HTMLElement>(null);
     const open = Boolean(anchorEl);
 
     const handleClick = (event: React.MouseEvent<HTMLElement>) => {
@@ -119,15 +119,17 @@ export default () => {
                         <Link to={"/"} style={styles.Undecorated}>
                             <Logo size={"sm"} style={styles.Logo}/>
                         </Link>
-                        <IconButton
-                            size="large"
-                            edge="start"
-                            color="inherit"
-                            aria-label="menu"
-                            onClick={handleClick}
-                        >
-                            <MenuIcon/>
-                        </IconButton>
+                        <Tooltip title="Menu">
+                            <IconButton
+                                size="large"
+                                edge="start"
+                                color="inherit"
+                                aria-label="menu"
+                                onClick={handleClick}
+                            >
+                                <MenuIcon/>
+                            </IconButton>
+                        </Tooltip>
                         <Menu
                             open={open}
                             onClose={handleClose}
@@ -185,31 +187,35 @@ export default () => {
                     <Box sx={{flexGrow: 1}}/>
                     <RightSection>
                         <Box>
-                            <IconButton
-                                size="large"
-                                aria-label="spotify"
-                                style={styles.LightClick}
-                                onClick={() => {
-                                    setLastSeenSpotifyFn();
-                                    navigateExternal(PODCAST_LINK);
-                                }}
-                            >
-                                <Badge badgeContent={numUnseenSpotifyTracks} color="warning">
-                                    <Image src={spotifyWhite} width={25} height={25}/>
-                                </Badge>
-                            </IconButton>
-                            <IconButton
-                                size="large"
-                                aria-label={`${numUnseenArticles} new notifications`}
-                                color="inherit"
-                                onClick={() => {
-                                    navigate(ARTICLES_LINK, {state: {sort: "Unread"}});
-                                }}
-                            >
-                                <Badge badgeContent={numUnseenArticles} color="warning">
-                                    <LibraryBooks/>
-                                </Badge>
-                            </IconButton>
+                            <Tooltip title="Spotify">
+                                <IconButton
+                                    size="large"
+                                    aria-label="spotify"
+                                    style={styles.LightClick}
+                                    onClick={() => {
+                                        setLastSeenSpotifyFn();
+                                        navigateExternal(PODCAST_LINK);
+                                    }}
+                                >
+                                    <Badge badgeContent={numUnseenSpotifyTracks} color="warning">
+                                        <Image src={spotifyWhite} width={25} height={25}/>
+                                    </Badge>
+                                </IconButton>
+                            </Tooltip>
+                            <Tooltip title="Unread Articles">
+                                <IconButton
+                                    size="large"
+                                    aria-label={`${numUnseenArticles} new notifications`}
+                                    color="inherit"
+                                    onClick={() => {
+                                        navigate(ARTICLES_LINK, {state: {sort: "Unread"}});
+                                    }}
+                                >
+                                    <Badge badgeContent={numUnseenArticles} color="warning">
+                                        <LibraryBooks/>
+                                    </Badge>
+                                </IconButton>
+                            </Tooltip>
                         </Box>
                     </RightSection>
                 </Toolbar>

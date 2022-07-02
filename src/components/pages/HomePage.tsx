@@ -1,5 +1,5 @@
 import { EmailRounded, Twitter, YouTube } from "@mui/icons-material";
-import { Container, IconButton } from "@mui/material";
+import { Container, IconButton, Tooltip } from "@mui/material";
 import * as React from "react";
 import { CSSProperties } from "react";
 import { Col, Image, Row } from "react-bootstrap";
@@ -104,39 +104,49 @@ const HomePage = () => {
             </Container>
 
             <div style={styles.infoGroup3}>
-                <IconButton
-                    style={styles.DarkClick}
-                    onClick={() => {
-                        setLastSeenSpotifyFn();
-                        navigateExternal(PODCAST_LINK);
-                    }}
-                >
-                    <Image src={spotifyDark} width={22} height={22}/>
-                </IconButton>
-                <IconButton
-                    style={styles.DarkClick}
-                    href={YOUTUBE_LINK}
-                >
-                    <YouTube/>
-                </IconButton>
-                <IconButton
-                    style={styles.DarkClick}
-                    href={PATREON_LINK}
-                >
-                    <Image src={patreonDark} width={20} height={20}/>
-                </IconButton>
-                <IconButton
-                    style={styles.DarkClick}
-                    href={`mailto:${EMAIL}`}
-                >
-                    <EmailRounded/>
-                </IconButton>
-                <IconButton
-                    style={styles.DarkClick}
-                    href={TWITTER_LINK}
-                >
-                    <Twitter/>
-                </IconButton>
+                <Tooltip title="Spotify">
+                    <IconButton
+                        style={styles.DarkClick}
+                        onClick={() => {
+                            setLastSeenSpotifyFn();
+                            navigateExternal(PODCAST_LINK);
+                        }}
+                    >
+                        <Image src={spotifyDark} width={22} height={22}/>
+                    </IconButton>
+                </Tooltip>
+                <Tooltip title="YouTube">
+                    <IconButton
+                        style={styles.DarkClick}
+                        href={YOUTUBE_LINK}
+                    >
+                        <YouTube/>
+                    </IconButton>
+                </Tooltip>
+                <Tooltip title="Patreon">
+                    <IconButton
+                        style={styles.DarkClick}
+                        href={PATREON_LINK}
+                    >
+                        <Image src={patreonDark} width={20} height={20}/>
+                    </IconButton>
+                </Tooltip>
+                <Tooltip title="Email">
+                    <IconButton
+                        style={styles.DarkClick}
+                        href={`mailto:${EMAIL}`}
+                    >
+                        <EmailRounded/>
+                    </IconButton>
+                </Tooltip>
+                <Tooltip title="Twitter">
+                    <IconButton
+                        style={styles.DarkClick}
+                        href={TWITTER_LINK}
+                    >
+                        <Twitter/>
+                    </IconButton>
+                </Tooltip>
             </div>
 
             <Container maxWidth={"md"}>
