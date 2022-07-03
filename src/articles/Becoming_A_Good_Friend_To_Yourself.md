@@ -4,7 +4,7 @@ Self doubt
 
 Imposter syndrome
 
-Self criticism
+Self-criticism
 
 And this cycle is continuous if we don’t step in and stop it.
 

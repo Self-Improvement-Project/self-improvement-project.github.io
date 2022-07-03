@@ -9,7 +9,7 @@ Why? Look I get the joy pain brings in retrospective terms. It can be a bit soci
 pains sometimes. However, there is good suffering and bad suffering.
 
 Bad suffering comes from doing things we don’t choose nor want properly. We are brainwashed and marketed to decide we
-suddenly want something that you’re life was in fact fine without before. A lot of this is related to money.
+suddenly want something that your life was in fact fine without before. A lot of this is related to money.
 
 Good suffering comes from knowing your heading in the right direction. You just need to do the hard miles to get there.
 You know when you get any taste of success that it will be sweet and 100% pure.

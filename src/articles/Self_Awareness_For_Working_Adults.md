@@ -23,7 +23,7 @@ Detachment to some extent.
 When we decide on a view, we feel obliged to stick by it as it is some form of representation of ourselves. What if it
 wasn’t?
 
-What if that perception just existed. Zero judgement nor association. It creates a form of mental freedom. A liberations
+What if that perception just existed. Zero judgement nor association. It creates a form of mental freedom. A liberation
 of your current existence. And the courage to move forward as an individual. Progression of one’s self.
 
 So why am I telling you this today? Is it permission? Maybe. Is it opportunity? Most definitely. Or maybe it is a choice
@@ -31,7 +31,7 @@ for you that you are now aware of.
 
 Being aware of the prison we may be a part of is the first step forward.
 
-It is beyond any temporary self care habit or revolutionary trend.
+It is beyond any temporary self-care habit or revolutionary trend.
 
 This is liberation front the mind and the world that your mind is currently a part of. Move beyond the surface of this
 entrapment to start truly living.

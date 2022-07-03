@@ -1,6 +1,6 @@
 This might be one of the most important and powerful lessons in life; letting go.
 
-We have one of the harshest psychological set ups of constantly self sabotaging ourselves. It’s practically involuntary.
+We have one of the harshest psychological set-ups of constantly self sabotaging ourselves. It’s practically involuntary.
 And this, without realising, can provide us with most of our daily suffering.
 
 That suffering of “I’m not good enough” voice going round and round in our heads. This is where the importance of self
@@ -28,7 +28,7 @@ to master in life.
 
 It’s important to acknowledge that it’s okay if you don’t manage to be this way all the time.
 
-One of my best and most helpful suggestions would be to create an environment you desire; one that is self loving and
+One of my best and most helpful suggestions would be to create an environment you desire; one that is self-loving and
 accepting of everything. Remove that and those that are not. One that eliminates chaos day to day and appreciates the
 wonders of calm and peace.
 

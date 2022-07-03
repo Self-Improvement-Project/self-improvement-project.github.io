@@ -35,7 +35,7 @@ Do you have a regular routine that allows you to focus on important things?
 
 Do you have the comfort of your own space that is never interrupted?
 
-I can imagine these are some of the things digital nomads may pine for time to time.
+I can imagine these are some things digital nomads may pine for time to time.
 
 But let’s become balanced again. Purely from your own perspective, what does quality of life mean to you?
 

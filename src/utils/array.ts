@@ -18,5 +18,3 @@ export const reverseAlphabetically = (blog1: IBlog, blog2: IBlog) => blog2.title
 // filtering
 export const read = (seenArticles: string[]) => (blog: IBlog) => seenArticles.includes(blog.id);
 export const unread = (seenArticles: string[]) => (blog: IBlog) => !seenArticles.includes(blog.id);
-
-// 	.slice(0, num);

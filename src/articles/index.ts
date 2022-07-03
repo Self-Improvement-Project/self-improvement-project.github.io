@@ -8,6 +8,7 @@ import Find_Better_Happiness from "./Find_Better_Happiness.md";
 import Happiness_Money_And_Freedom from "./Happiness_Money_And_Freedom_Surface_Level_Thoughts.md";
 import My_Story_So_Far from "./My_Story_So_Far.md";
 import Self_Awareness_For_Working_Adults from "./Self_Awareness_For_Working_Adults.md";
+import Simple_Life_Habits_Learnt_From_Years_Of_Curiosity from "./Simple_Life_Habits_Learnt_From_Years_Of_Curiosity.md";
 import The_Simple_Life from "./The_Simple_Life.md";
 import Two_Ways_That_Will_Help_You_Let_Go from "./Two_Ways_That_Will_Help_You_Let_Go.md";
 import What_Is_The_True_Quality_Of_Your_Life from "./What_Is_The_True_Quality_Of_Your_Life.md";
@@ -31,7 +32,8 @@ export const ARTICLE_IDS = [
     "Be-The-Uplifter",
     "Be-More-Thankful",
     "The-Simple-Life",
-    "Happiness-Money-And-Freedom"
+    "Happiness-Money-And-Freedom",
+    "Simple-Life-Habits-Learnt-From-Years-Of-Curiosity"
 ] as const;
 
 // convert namesArr into string literal union type
@@ -194,6 +196,18 @@ export const Blogs: IBlog[] = [
             "problems. Once you have both, what makes us happy?",
         data: Happiness_Money_And_Freedom,
         createdAt: date("March", 28, 2022)
+    },
+    {
+        id: "Simple-Life-Habits-Learnt-From-Years-Of-Curiosity",
+        title: "Simple Life Habits learnt from years of curiosity",
+        shortTitle: "Simple Life Habits Learnt From Years Of Curiosity",
+        excerpt: "Sparked by good intention and elevated by COVID, these life habits don’t only make me a better person, " +
+            "but they have given me insight into the simple and purer pleasures of life. Again, this is just a first " +
+            "piece. I intend on exploring these deeper to look at the why and evolution of them over time. Nothing " +
+            "revolutionary, just realistic as ever. By sharing my start point with you, I hope to inspire your own " +
+            "start point.",
+        data: Simple_Life_Habits_Learnt_From_Years_Of_Curiosity,
+        createdAt: date("March", 27, 2022)
     }
 ];
 

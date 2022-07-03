@@ -20,7 +20,7 @@ nothing.
 So I guess where this piece is leading to is more around true happiness once we’ve achieved everything we ever wanted.
 
 This begs the question of “are we truly scared of it?” Perhaps because we don’t want to spend this time with ourselves
-in our own thoughts. Everything in your life has been driven and now you’re just expected to stop?
+in our own thoughts. Everything in your life has been driven, and now you’re just expected to stop?
 
 We may never settle for what we have because we know there is always more out there we can achieve. We will not be truly
 satisfied until we reach that. Whatever ‘that’ is.
