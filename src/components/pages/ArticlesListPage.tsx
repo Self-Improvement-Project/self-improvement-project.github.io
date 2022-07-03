@@ -1,4 +1,4 @@
-import { Container, Grid, TextField } from "@mui/material";
+import { Autocomplete, Container, Grid, TextField } from "@mui/material";
 import { CSSProperties, useEffect, useMemo, useState } from "react";
 import { Dropdown, DropdownButton } from "react-bootstrap";
 import { useSelector } from "react-redux";
@@ -58,6 +58,7 @@ const ArticlesListPage = () => {
     const filtered = (articles: IBlog[]): IBlog[] =>
         articles.filter((article) =>
             article.title.toLowerCase().includes(filterText.toLowerCase()) ||
+            article.shortTitle.toLowerCase().includes(filterText.toLowerCase()) ||
             article.excerpt.toLowerCase().includes(filterText.toLowerCase())
         );
 
@@ -102,6 +103,14 @@ const ArticlesListPage = () => {
         return sorted(filteredArticles, sortMethod);
     }, [ allArticles, filterText, sortMethod ]);
 
+    const options = Blogs.sort((a, b) =>
+        a.shortTitle < b.shortTitle ? -1 : 1
+    ).map((article) => article.shortTitle);
+    const [ value, setValue ] = useState<string | null>(null);
+    const [ inputValue, setInputValue ] = useState("");
+
+    const [ viewWhich, setViewWhich ] = useState<"All" | "Read" | "Unread">("All");
+
     return (
         <Container maxWidth="md" style={styles.Container}>
             <Title/>
@@ -111,18 +120,39 @@ const ArticlesListPage = () => {
                     <h3> Articles </h3>
                 </Grid>
                 <Grid item xs={5} style={{textAlign: "right"}}>
-                    <TextField
-                        id="outlined-basic"
-                        label="Filter"
-                        variant="standard"
-                        style={{marginTop: 0}}
-                        value={filterText}
-                        size="small"
-                        margin="dense"
-                        onChange={(e) => setFilterText(e.target.value)}
+                    <Autocomplete
+                        freeSolo
+                        disablePortal
+                        options={options}
+                        renderInput={(params) => <TextField {...params} label="Article Title/Content"/>}
+                        value={value}
+                        onChange={(event: any, newValue: string | null) => {
+                            setValue(newValue);
+                            setFilterText(newValue === null ? "" : newValue);
+                        }}
+                        inputValue={inputValue}
+                        onInputChange={(event, newInputValue) => {
+                            setInputValue(newInputValue);
+                            setFilterText(newInputValue);
+                        }}
                     />
                 </Grid>
                 <Grid item xs={1} style={styles.AlignDown}>
+                    {/*<Tooltip title={viewWhich}>*/}
+                    {/*    <IconButton>*/}
+                    {/*        {*/}
+                    {/*            viewWhich === "Read" ? (*/}
+                    {/*                    <VisibilityRounded/>*/}
+                    {/*                ) :*/}
+                    {/*                viewWhich === "Unread" ? (*/}
+                    {/*                        <VisibilityOffRounded/>*/}
+                    {/*                    ) :*/}
+                    {/*                    viewWhich === "All" && (*/}
+                    {/*                        <VisibilityRounded/>*/}
+                    {/*                    )*/}
+                    {/*        }*/}
+                    {/*    </IconButton>*/}
+                    {/*</Tooltip>*/}
                     <DropdownButton title="Sort" menuVariant="dark" variant="secondary"
                                     onSelect={e => setSortBy(e as unknown as IArticleSortOption)}>
                         {
