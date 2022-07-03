@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/static/css/main.b46989a2.css",
-    "main.js": "/static/js/main.28eb21a0.js",
+    "main.js": "/static/js/main.9027a0a9.js",
     "static/js/787.9e0c1f39.chunk.js": "/static/js/787.9e0c1f39.chunk.js",
     "static/media/white-simple-podcast-review-instagram-story.png": "/static/media/white-simple-podcast-review-instagram-story.2aecf85edb3609f9bccd.png",
     "static/media/white-simple-podcast-review-instagram-story-2.png": "/static/media/white-simple-podcast-review-instagram-story-2.338cc06d2701c5d6216a.png",
@@ -10,26 +10,29 @@
     "static/media/self-improvement-project-transparent.png": "/static/media/self-improvement-project-transparent.e00c2566a6eed4eb027a.png",
     "static/media/patreon-dark.png": "/static/media/patreon-dark.7d32533390d5488b1b0c.png",
     "static/media/spotify-white.png": "/static/media/spotify-white.ef90575892546bbdfade.png",
-    "static/media/Eight_Week_Wake_Up_Coaching_Program.md": "/static/media/Eight_Week_Wake_Up_Coaching_Program.2d80d86bf4a85c46270f.md",
-    "static/media/Be_More_Thankful.md": "/static/media/Be_More_Thankful.8dbb533c33a87aed26cd.md",
-    "static/media/Be_The_Uplifter.md": "/static/media/Be_The_Uplifter.df43cca83facf9f4296b.md",
+    "static/media/Simple_Life_Habits_Learnt_From_Years_Of_Curiosity.md": "/static/media/Simple_Life_Habits_Learnt_From_Years_Of_Curiosity.e05ce496e14e2c79384f.md",
+    "static/media/Eight_Week_Wake_Up_Coaching_Program.md": "/static/media/Eight_Week_Wake_Up_Coaching_Program.c15a95922ee18eee4211.md",
+    "static/media/Be_More_Thankful.md": "/static/media/Be_More_Thankful.9f3de63f1de73faea9cd.md",
+    "static/media/Be_The_Uplifter.md": "/static/media/Be_The_Uplifter.f849afe0dcf6db01f7e0.md",
     "static/media/Find_Better_Happiness.md": "/static/media/Find_Better_Happiness.f3a5bc9e3e1aca892eb0.md",
     "static/media/An_Identity_Prison.md": "/static/media/An_Identity_Prison.ffc735e52efe8dd8ae32.md",
     "static/media/My_Story_So_Far.md": "/static/media/My_Story_So_Far.709832fb60fcda382f15.md",
-    "static/media/What_Is_The_True_Quality_Of_Your_Life.md": "/static/media/What_Is_The_True_Quality_Of_Your_Life.bde7f755fceec295a8bc.md",
-    "static/media/Who_Do_You_Really_Want_To_Be.md": "/static/media/Who_Do_You_Really_Want_To_Be.1efca9f96c5a4641a2ec.md",
-    "static/media/Two_Ways_That_Will_Help_You_Let_Go.md": "/static/media/Two_Ways_That_Will_Help_You_Let_Go.37da01fd97520bc9f9c3.md",
+    "static/media/What_Is_The_True_Quality_Of_Your_Life.md": "/static/media/What_Is_The_True_Quality_Of_Your_Life.73758c3ee400fd32c574.md",
+    "static/media/Who_Do_You_Really_Want_To_Be.md": "/static/media/Who_Do_You_Really_Want_To_Be.4590e23f78ab8eb9b507.md",
+    "static/media/Happiness_Money_And_Freedom_Surface_Level_Thoughts.md": "/static/media/Happiness_Money_And_Freedom_Surface_Level_Thoughts.a2897f5a18833975e768.md",
+    "static/media/What_Does_Having_Less_Of_Give_You_More_Of.md": "/static/media/What_Does_Having_Less_Of_Give_You_More_Of.ebf50a773b194f45a8d0.md",
+    "static/media/Two_Ways_That_Will_Help_You_Let_Go.md": "/static/media/Two_Ways_That_Will_Help_You_Let_Go.dad0fd8d367282143a16.md",
     "static/media/Whats_Wrong_With_Just_Existing.md": "/static/media/Whats_Wrong_With_Just_Existing.f00e0091ae5a7b57a381.md",
-    "static/media/Becoming_A_Good_Friend_To_Yourself.md": "/static/media/Becoming_A_Good_Friend_To_Yourself.0284c43c09f376eabeb8.md",
-    "static/media/Self_Awareness_For_Working_Adults.md": "/static/media/Self_Awareness_For_Working_Adults.b14eab5e58117bac2fca.md",
+    "static/media/Becoming_A_Good_Friend_To_Yourself.md": "/static/media/Becoming_A_Good_Friend_To_Yourself.93fc5acb01ef1a93c5e7.md",
+    "static/media/Self_Awareness_For_Working_Adults.md": "/static/media/Self_Awareness_For_Working_Adults.9112a8be1bcab5e34680.md",
     "static/media/The_Simple_Life.md": "/static/media/The_Simple_Life.cc436a0edaebd4f2943a.md",
     "index.html": "/index.html",
     "main.b46989a2.css.map": "/static/css/main.b46989a2.css.map",
-    "main.28eb21a0.js.map": "/static/js/main.28eb21a0.js.map",
+    "main.9027a0a9.js.map": "/static/js/main.9027a0a9.js.map",
     "787.9e0c1f39.chunk.js.map": "/static/js/787.9e0c1f39.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.b46989a2.css",
-    "static/js/main.28eb21a0.js"
+    "static/js/main.9027a0a9.js"
   ]
 }

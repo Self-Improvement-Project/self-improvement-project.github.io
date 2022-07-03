@@ -33,7 +33,7 @@ Yet sometimes we refuse to jump.
 
 This is the time to be selfish. You’ll be accepted by those you’re supposed to and if not, then leave them behind.
 
-So let’s summarise some of the big questions today –
+So let’s summarise some big questions today –
 
 How do we jump in with both feet into a new version of ourselves?
 

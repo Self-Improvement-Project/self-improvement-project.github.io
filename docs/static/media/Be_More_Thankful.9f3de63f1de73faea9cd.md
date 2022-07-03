@@ -13,7 +13,7 @@ As of writing, there are 2 ends of the gratitude scale I like to think of: From 
 
 As touched on above, being a brat can be a pretty quick realisation when being grateful comes into the picture. You have
 unlimited internet access to as much entertainment as you want, all your basic needs are met. Yet you want more and are
-unhappy about that. Pretty funny huh?
+unhappy about that. Pretty funny, huh?
 
 The other end is the despondency. Another way of looking at it is from a nihilistic perspective; When we feel helpless
 about all the bad in the world knowing we can’t change it all.

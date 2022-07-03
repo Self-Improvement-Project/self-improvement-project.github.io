@@ -54,7 +54,7 @@ Some of the more measurable things I look to achieve in this process is helping 
 
 **1:1 Coaching Details**
 
-- 1 hour call per week (over Microsoft Teams) – Conversation specifically focused on your individual needs and based
+- 1-hour call per week (over Microsoft Teams) – Conversation specifically focused on your individual needs and based
   upon
   your values, beliefs & purpose. Each week follows a loose theme to build towards.
 
@@ -64,5 +64,5 @@ Some of the more measurable things I look to achieve in this process is helping 
 
 - Four 1:1 Coaching Sessions over one month – £99 ~~£120~~/$127 ~~$152~~
 
-If you’re interested, email me at [lawrence.selfimprove@gmail.com](lawrence.selfimprove@gmail.com) and we’ll set up a
+If you’re interested, email me at [lawrence.selfimprove@gmail.com](lawrence.selfimprove@gmail.com), and we’ll set up a
 call for a chat
