@@ -11,6 +11,7 @@ import Self_Awareness_For_Working_Adults from "./Self_Awareness_For_Working_Adul
 import Simple_Life_Habits_Learnt_From_Years_Of_Curiosity from "./Simple_Life_Habits_Learnt_From_Years_Of_Curiosity.md";
 import The_Simple_Life from "./The_Simple_Life.md";
 import Two_Ways_That_Will_Help_You_Let_Go from "./Two_Ways_That_Will_Help_You_Let_Go.md";
+import What_Does_Having_Less_Of_Give_You_More_Of from "./What_Does_Having_Less_Of_Give_You_More_Of.md";
 import What_Is_The_True_Quality_Of_Your_Life from "./What_Is_The_True_Quality_Of_Your_Life.md";
 import Whats_Wrong_With_Just_Existing from "./Whats_Wrong_With_Just_Existing.md";
 import Who_Do_You_Really_Want_To_Be from "./Who_Do_You_Really_Want_To_Be.md";
@@ -33,7 +34,8 @@ export const ARTICLE_IDS = [
     "Be-More-Thankful",
     "The-Simple-Life",
     "Happiness-Money-And-Freedom",
-    "Simple-Life-Habits-Learnt-From-Years-Of-Curiosity"
+    "Simple-Life-Habits-Learnt-From-Years-Of-Curiosity",
+    "What-Does-Having-Less-Of-Give-You-More-Of"
 ] as const;
 
 // convert namesArr into string literal union type
@@ -208,6 +210,17 @@ export const Blogs: IBlog[] = [
             "start point.",
         data: Simple_Life_Habits_Learnt_From_Years_Of_Curiosity,
         createdAt: date("March", 27, 2022)
+    },
+    {
+        id: "What-Does-Having-Less-Of-Give-You-More-Of",
+        title: "What does having less of give you more of?",
+        shortTitle: "What Does Having Less Of Give You More Of?",
+        excerpt: "The world comes to a halt. First time in many of our lives that we have experienced this. The initial " +
+            "intuitive responses of panic took hold and, to be honest, took at least a few months to even begin to fade " +
+            "away. But as we adapted, something important happened. Something crucial that some of us may have lost since " +
+            "but it will be easier than ever to reclaim it back. And that thing is ‘less’.",
+        data: What_Does_Having_Less_Of_Give_You_More_Of,
+        createdAt: date("March", 26, 2022)
     }
 ];
 
