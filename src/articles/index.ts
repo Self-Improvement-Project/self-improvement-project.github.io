@@ -1,14 +1,19 @@
 import { date, reverseChronologically } from "../utils";
 import An_Identity_Prison from "./An_Identity_Prison.md";
+import An_Infinite_Mindset from "./An_Infinite_Mindset.md";
 import Be_More_Thankful from "./Be_More_Thankful.md";
 import Be_The_Uplifter from "./Be_The_Uplifter.md";
 import Becoming_A_Good_Friend_To_Yourself from "./Becoming_A_Good_Friend_To_Yourself.md";
+import Book_Recommendations_For_Starting_Self_Development
+    from "./Book_Recommendations_For_Starting_Self_Development.md";
 import Eight_Week_Wake_Up_Coaching_Program from "./Eight_Week_Wake_Up_Coaching_Program.md";
 import Find_Better_Happiness from "./Find_Better_Happiness.md";
 import Happiness_Money_And_Freedom from "./Happiness_Money_And_Freedom_Surface_Level_Thoughts.md";
 import My_Story_So_Far from "./My_Story_So_Far.md";
 import Self_Awareness_For_Working_Adults from "./Self_Awareness_For_Working_Adults.md";
+import Self_Reflection from "./Self_Relection.md";
 import Simple_Life_Habits_Learnt_From_Years_Of_Curiosity from "./Simple_Life_Habits_Learnt_From_Years_Of_Curiosity.md";
+import Slowing_Down_In_A_Fast_World from "./Slowing_Down_In_A_Fast_World.md";
 import The_Simple_Life from "./The_Simple_Life.md";
 import Two_Ways_That_Will_Help_You_Let_Go from "./Two_Ways_That_Will_Help_You_Let_Go.md";
 import What_Does_Having_Less_Of_Give_You_More_Of from "./What_Does_Having_Less_Of_Give_You_More_Of.md";
@@ -35,7 +40,11 @@ export const ARTICLE_IDS = [
     "The-Simple-Life",
     "Happiness-Money-And-Freedom",
     "Simple-Life-Habits-Learnt-From-Years-Of-Curiosity",
-    "What-Does-Having-Less-Of-Give-You-More-Of"
+    "What-Does-Having-Less-Of-Give-You-More-Of",
+    "An-Infinite-Mindset",
+    "Slowing-Down-In-A-Fast-World",
+    "Self-Reflection",
+    "Book-Recommendations-For-Starting-Self-Development"
 ] as const;
 
 // convert namesArr into string literal union type
@@ -202,7 +211,7 @@ export const Blogs: IBlog[] = [
     {
         id: "Simple-Life-Habits-Learnt-From-Years-Of-Curiosity",
         title: "Simple Life Habits learnt from years of curiosity",
-        shortTitle: "Simple Life Habits Learnt From Years Of Curiosity",
+        shortTitle: "Simple Life Habits From Years Of Curiosity",
         excerpt: "Sparked by good intention and elevated by COVID, these life habits don’t only make me a better person, " +
             "but they have given me insight into the simple and purer pleasures of life. Again, this is just a first " +
             "piece. I intend on exploring these deeper to look at the why and evolution of them over time. Nothing " +
@@ -214,14 +223,56 @@ export const Blogs: IBlog[] = [
     {
         id: "What-Does-Having-Less-Of-Give-You-More-Of",
         title: "What does having less of give you more of?",
-        shortTitle: "What Does Having Less Of Give You More Of?",
+        shortTitle: "What Having Less Of Gives You More Of",
         excerpt: "The world comes to a halt. First time in many of our lives that we have experienced this. The initial " +
             "intuitive responses of panic took hold and, to be honest, took at least a few months to even begin to fade " +
             "away. But as we adapted, something important happened. Something crucial that some of us may have lost since " +
             "but it will be easier than ever to reclaim it back. And that thing is ‘less’.",
         data: What_Does_Having_Less_Of_Give_You_More_Of,
         createdAt: date("March", 26, 2022)
+    },
+    {
+        id: "An-Infinite-Mindset",
+        title: "An Infinite Mindset",
+        shortTitle: "An Infinite Mindset",
+        excerpt: "Today’s writing is about one of the first episodes I ever did on the podcast back in May 2020. It’s all about living" +
+            "with an infinite mindset. I first came across the concept through Simon Sinek’s book on it, with the same title as this" +
+            "piece. A lot of us in today's world play finite games. We look for outcomes all the time. Measurable’s. Legacies! It’s not our" +
+            "fault. We are programmed to in this current society. If you’re not winning, you’re losing right? But this applies" +
+            "unhealthy amounts of pressure on us to live and endless life of targets and goals. In order to look back on our life and" +
+            "be happy with the outcomes we’ve got? I don’t think so.",
+        data: An_Infinite_Mindset,
+        createdAt: date("March", 25, 2022)
+    },
+    {
+        id: "Slowing-Down-In-A-Fast-World",
+        title: "Slowing down in a fast world",
+        shortTitle: "Slowing Down in a Fast World",
+        excerpt: "I’ve always been quite chilled and zen however depending on your influences and environment this can " +
+            "change. I want to talk to you about the benefits of slowing down in a fast moving world.",
+        data: Slowing_Down_In_A_Fast_World,
+        createdAt: date("December", 10, 2020)
+    },
+    {
+        id: "Self-Reflection",
+        title: "Self Reflection",
+        shortTitle: "Self Reflection",
+        excerpt: "Self reflection is a long term benefit. There is no external gratification. There is no dopamine hit. " +
+            "I would compare the feeling to gratitude, appreciation or meditation. It’s like flipping any negative " +
+            "thoughts or mental baggage into a learning process. Instead of the ‘why is this happening to me’ we’re " +
+            "flipping our mindset to ‘what is this trying to teach me’.",
+        data: Self_Reflection,
+        createdAt: date("November", 30, 2020)
+    },
+    {
+        id: "Book-Recommendations-For-Starting-Self-Development",
+        title: "Book Recommendations for Starting Self Development",
+        shortTitle: "Books for Starting Self Development",
+        excerpt: "",
+        data: Book_Recommendations_For_Starting_Self_Development,
+        createdAt: date("November", 30, 2020)
     }
+
 ];
 
 export const getBlog = (blogId: IARTICLE_ID): IBlog => Blogs.find((blog) => blog.id === blogId)!;

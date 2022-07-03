@@ -73,6 +73,7 @@ export const ONE_TO_ONE_COACHING_LINK = "/articles/Eight-Week-Wake-Up-Coaching-P
 export const STORY_SO_FAR_LINK = "/articles/My-Story-So-Far";
 export const PATREON_LINK = "https://www.patreon.com/tsip";
 export const GITHUB_LINK = "https://github.com/Self-Improvement-Project/self-improvement-project.github.io";
+export const SOUND_CLOUD_LINK = "https://soundcloud.com/user-620056653?ref=clipboard&p=i&c=1";
 export const ARTICLES_LINK = "/articles";
 
 const LinkButtons = ({style}: { style?: CSSProperties }) => (
