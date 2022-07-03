@@ -1,10 +1,11 @@
-import { date } from "../utils";
+import { date, reverseChronologically } from "../utils";
 import An_Identity_Prison from "./An_Identity_Prison.md";
 import Be_More_Thankful from "./Be_More_Thankful.md";
 import Be_The_Uplifter from "./Be_The_Uplifter.md";
 import Becoming_A_Good_Friend_To_Yourself from "./Becoming_A_Good_Friend_To_Yourself.md";
 import Eight_Week_Wake_Up_Coaching_Program from "./Eight_Week_Wake_Up_Coaching_Program.md";
 import Find_Better_Happiness from "./Find_Better_Happiness.md";
+import Happiness_Money_And_Freedom from "./Happiness_Money_And_Freedom_Surface_Level_Thoughts.md";
 import My_Story_So_Far from "./My_Story_So_Far.md";
 import Self_Awareness_For_Working_Adults from "./Self_Awareness_For_Working_Adults.md";
 import The_Simple_Life from "./The_Simple_Life.md";
@@ -29,7 +30,8 @@ export const ARTICLE_IDS = [
     "Becoming-A-Good-Friend-To-Yourself",
     "Be-The-Uplifter",
     "Be-More-Thankful",
-    "The-Simple-Life"
+    "The-Simple-Life",
+    "Happiness-Money-And-Freedom"
 ] as const;
 
 // convert namesArr into string literal union type
@@ -182,11 +184,21 @@ export const Blogs: IBlog[] = [
             "you have. The distance between those two realities are vast. Which makes them ideas.",
         data: What_Is_The_True_Quality_Of_Your_Life,
         createdAt: date("March", 29, 2022)
+    },
+    {
+        id: "Happiness-Money-And-Freedom",
+        title: "Happiness, Money and Freedom. Surface level thoughts",
+        shortTitle: "Happiness, Money and Freedom",
+        excerpt: "Happiness money and freedom. We only gain happiness by removing the obstacles of money and freedom. " +
+            "Let’s start basic – money solves money related happiness problems. Freedom solves imprisoned happiness " +
+            "problems. Once you have both, what makes us happy?",
+        data: Happiness_Money_And_Freedom,
+        createdAt: date("March", 28, 2022)
     }
 ];
 
 export const getBlog = (blogId: IARTICLE_ID): IBlog => Blogs.find((blog) => blog.id === blogId)!;
 export const getRecentBlogs = (num: number) =>
     Blogs
-        .sort((a, b) => b.createdAt.getTime() - a.createdAt.getTime())
+        .sort(reverseChronologically)
         .slice(0, num);

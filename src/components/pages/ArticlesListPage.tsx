@@ -5,6 +5,14 @@ import { useSelector } from "react-redux";
 import { useLocation, useNavigate } from "react-router-dom";
 import { Blogs, IBlog } from "../../articles";
 import { selectSeenArticles } from "../../redux/selectors";
+import {
+    alphabetically,
+    chronologically,
+    read,
+    reverseAlphabetically,
+    reverseChronologically,
+    unread
+} from "../../utils";
 import { BlogStub, Title } from "../molecules";
 import { ARTICLES_LINK } from "../molecules/LinkButtons";
 
@@ -65,29 +73,17 @@ const ArticlesListPage = () => {
     const sorted = (articles: IBlog[], sortedBy: IArticleSortOption): IBlog[] => {
         if (sortedBy) {
             if (sortedBy === "Chronologically") {
-                return articles.sort((a, b) =>
-                    a.createdAt.getTime() - b.createdAt.getTime()
-                );
+                return articles.sort(chronologically);
             } else if (sortedBy === "Reverse-Chronologically") {
-                return articles.sort((a, b) =>
-                    b.createdAt.getTime() - a.createdAt.getTime()
-                );
+                return articles.sort(reverseChronologically);
             } else if (sortedBy === "Alphabetically") {
-                return articles.sort((a, b) =>
-                    a.title < b.title ? -1 : 1
-                );
+                return articles.sort(alphabetically);
             } else if (sortedBy === "Reverse-Alphabetically") {
-                return articles.sort((a, b) =>
-                    a.title < b.title ? 1 : -1
-                );
+                return articles.sort(reverseAlphabetically);
             } else if (sortedBy === "Read") {
-                return articles.filter((a) =>
-                    seenArticles.includes(a.id)
-                );
+                return articles.filter(read(seenArticles));
             } else if (sortedBy === "Unread") {
-                return articles.filter((a) =>
-                    !seenArticles.includes(a.id)
-                );
+                return articles.filter(unread(seenArticles));
             } else {
                 return articles;
             }
