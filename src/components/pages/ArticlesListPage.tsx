@@ -19,7 +19,8 @@ import { ARTICLES_LINK } from "../molecules/LinkButtons";
 
 const styles: Record<string, CSSProperties> = {
     Container: {
-        textAlign: "left"
+        textAlign: "left",
+        minHeight: "82vh"
     },
     AlignDown: {
         alignSelf: "end"
@@ -160,12 +161,14 @@ const ArticlesListPage = () => {
                 </Grid>
             </Grid>
             {
-                sortedFilteredArticles.map((article) => (
-                    <BlogStub
-                        key={article.id}
-                        blog={article}
-                    />
-                ))
+                sortedFilteredArticles.length > 0 ?
+                    sortedFilteredArticles.map((article) => (
+                        <BlogStub
+                            key={article.id}
+                            blog={article}
+                        />
+                    )) :
+                    <p> No articles match the filtered criteria 😢 </p>
             }
         </Container>
     );

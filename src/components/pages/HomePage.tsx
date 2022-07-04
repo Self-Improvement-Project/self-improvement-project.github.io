@@ -1,16 +1,9 @@
-import { EmailRounded, Twitter, YouTube } from "@mui/icons-material";
-import { Container, IconButton, Tooltip } from "@mui/material";
+import { Container } from "@mui/material";
 import * as React from "react";
 import { CSSProperties } from "react";
-import { Col, Image, Row } from "react-bootstrap";
-import { useDispatch } from "react-redux";
+import { Col, Row } from "react-bootstrap";
 import { getRecentBlogs } from "../../articles";
-import { markLastSeenSpotify } from "../../redux/actions";
-import patreonDark from "../../resources/patreon-dark.png";
-import spotifyDark from "../../resources/spotify-dark.png";
-import { navigateExternal, now } from "../../utils";
-import { BlogStub, Logo, RadioStatementsCarousel, Title } from "../molecules";
-import { EMAIL, PATREON_LINK, PODCAST_LINK, TWITTER_LINK, YOUTUBE_LINK } from "../molecules/LinkButtons";
+import { BlogStub, LinkButtons, Logo, RadioStatementsCarousel, Title } from "../molecules";
 
 
 const styles: Record<string, CSSProperties> = {
@@ -54,16 +47,6 @@ const styles: Record<string, CSSProperties> = {
         marginBottom: 20,
         minHeight: 192
     },
-    infoGroup3: {
-        fontSize: 16,
-        textAlign: "center",
-        marginBottom: 20
-    },
-    DarkClick: {
-        color: "#3d3d3d",
-        border: "solid 1px #3d3d3d",
-        margin: 5
-    },
     padded: {
         paddingBottom: 8
     },
@@ -78,10 +61,6 @@ const styles: Record<string, CSSProperties> = {
 };
 
 const HomePage = () => {
-    const dispatch = useDispatch();
-    const setLastSeenSpotifyFn = () => {
-        dispatch(markLastSeenSpotify(now()));
-    };
     const bullet = "•"; //"◦";
     return (
         <Container maxWidth="md" style={styles.Container}>
@@ -103,51 +82,7 @@ const HomePage = () => {
                 </p>
             </Container>
 
-            <div style={styles.infoGroup3}>
-                <Tooltip title="Spotify">
-                    <IconButton
-                        style={styles.DarkClick}
-                        onClick={() => {
-                            setLastSeenSpotifyFn();
-                            navigateExternal(PODCAST_LINK);
-                        }}
-                    >
-                        <Image src={spotifyDark} width={22} height={22}/>
-                    </IconButton>
-                </Tooltip>
-                <Tooltip title="YouTube">
-                    <IconButton
-                        style={styles.DarkClick}
-                        href={YOUTUBE_LINK}
-                    >
-                        <YouTube/>
-                    </IconButton>
-                </Tooltip>
-                <Tooltip title="Patreon">
-                    <IconButton
-                        style={styles.DarkClick}
-                        href={PATREON_LINK}
-                    >
-                        <Image src={patreonDark} width={20} height={20}/>
-                    </IconButton>
-                </Tooltip>
-                <Tooltip title="Email">
-                    <IconButton
-                        style={styles.DarkClick}
-                        href={`mailto:${EMAIL}`}
-                    >
-                        <EmailRounded/>
-                    </IconButton>
-                </Tooltip>
-                <Tooltip title="Twitter">
-                    <IconButton
-                        style={styles.DarkClick}
-                        href={TWITTER_LINK}
-                    >
-                        <Twitter/>
-                    </IconButton>
-                </Tooltip>
-            </div>
+            <LinkButtons/>
 
             <Container maxWidth={"md"}>
                 <div>

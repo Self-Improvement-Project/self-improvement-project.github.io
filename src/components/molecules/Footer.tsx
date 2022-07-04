@@ -19,6 +19,10 @@ const styles: Record<string, CSSProperties> = {
         fontStyle: "italic",
         border: "1px solid",
         borderColor: "#b7b7b7"
+        // position: "fixed",
+        // bottom: 0,
+        // width: "100%",
+        // height: "2.5rem"
     },
     centered: {
         textAlign: "center"

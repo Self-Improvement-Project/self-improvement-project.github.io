@@ -15,6 +15,9 @@ const styles: Record<string, CSSProperties> = {
         // backgroundColor: '#f6f6f6'
         textAlign: "left"
     },
+    InnerContainer: {
+        minHeight: "74vh"
+    },
     centered: {
         textAlign: "center"
     },
@@ -127,7 +130,7 @@ const ArticlePage = () => {
             {blog &&
                 <div style={styles.Markdown}>
                     <h3 style={styles.centeredPadded}>{blog.title}</h3>
-                    <Container maxWidth={"md"}>
+                    <Container maxWidth={"md"} style={styles.InnerContainer}>
                         <hr/>
                         <Markdown
                             file={blog}

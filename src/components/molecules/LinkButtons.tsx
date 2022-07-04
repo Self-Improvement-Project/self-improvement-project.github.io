@@ -1,4 +1,14 @@
+import { EmailRounded, Twitter, YouTube } from "@mui/icons-material";
+import { IconButton, Tooltip } from "@mui/material";
+import * as React from "react";
 import { CSSProperties } from "react";
+import { Image } from "react-bootstrap";
+import { useDispatch } from "react-redux";
+import { markLastSeenSpotify } from "../../redux/actions";
+import patreonDark from "../../resources/patreon-dark.png";
+import soundCloudDark from "../../resources/sound-cloud-dark.png";
+import spotifyDark from "../../resources/spotify-dark.png";
+import { navigateExternal, now } from "../../utils";
 
 
 const styles: Record<string, CSSProperties> = {
@@ -7,58 +17,16 @@ const styles: Record<string, CSSProperties> = {
     },
     LightClick: {
         color: "white"
-    }
-};
-
-const buttonStyles: Record<string, CSSProperties> = {
-    EBookButton: {
-        backgroundColor: "#8ad4ff",
-        ...styles.SpacedOut,
-        ...styles.LightClick
     },
-    YoutubeButton: {
-        backgroundColor: "#ff3702",
-        ...styles.SpacedOut,
-        ...styles.LightClick
+    DarkClick: {
+        color: "#3d3d3d",
+        border: "solid 1px #3d3d3d",
+        margin: 5
     },
-    PodcastButton: {
-        backgroundColor: "#ffb300",
-        ...styles.SpacedOut,
-        ...styles.LightClick
-    },
-    TwitterButton: {
-        backgroundColor: "#01aeff",
-        ...styles.SpacedOut,
-        ...styles.LightClick
-    },
-    EmailButton: {
-        backgroundColor: "#013ba3",
-        ...styles.SpacedOut,
-        ...styles.LightClick
-    },
-    SelfLedOnlineCourseButton: {
-        backgroundColor: "#ffffff",
-        ...styles.SpacedOut
-    },
-    OneToOneCoachingButton: {
-        backgroundColor: "#1478be",
-        ...styles.SpacedOut,
-        ...styles.LightClick
-    },
-    StorySoFarButton: {
-        backgroundColor: "#303030",
-        ...styles.SpacedOut,
-        ...styles.LightClick
-    },
-    PatreonButton: {
-        backgroundColor: "#a04e9f",
-        ...styles.SpacedOut,
-        ...styles.LightClick
-    },
-    ArticlesButton: {
-        backgroundColor: "#2cb3cb",
-        ...styles.SpacedOut,
-        ...styles.LightClick
+    group: {
+        fontSize: 16,
+        textAlign: "center",
+        marginBottom: 20
     }
 };
 
@@ -76,48 +44,66 @@ export const GITHUB_LINK = "https://github.com/Self-Improvement-Project/self-imp
 export const SOUND_CLOUD_LINK = "https://soundcloud.com/user-620056653?ref=clipboard&p=i&c=1";
 export const ARTICLES_LINK = "/articles";
 
-const LinkButtons = ({style}: { style?: CSSProperties }) => (
-    <div style={style}>
-        {/*<Box>*/}
-        {/*    <Button*/}
-        {/*        variant="contained"*/}
-        {/*        style={buttonStyles.EBookButton}*/}
-        {/*        href={EBOOK_LINK}*/}
-        {/*    >*/}
-        {/*        Free Ebook*/}
-        {/*    </Button>*/}
-        {/*    <Button*/}
-        {/*        variant="contained"*/}
-        {/*        style={buttonStyles.EmailButton}*/}
-        {/*        href={EMAIL_LINK}*/}
-        {/*    >*/}
-        {/*        Newsletter*/}
-        {/*    </Button>*/}
-        {/*    <Button*/}
-        {/*        variant="outlined"*/}
-        {/*        style={buttonStyles.SelfLedOnlineCourseButton}*/}
-        {/*        href={SELF_LED_ONLINE_COURSE_LINK}*/}
-        {/*    >*/}
-        {/*        Self Led Online Course*/}
-        {/*    </Button>*/}
-        {/*</Box>*/}
-        {/*<Box>*/}
-        {/*    <Button*/}
-        {/*        variant="contained"*/}
-        {/*        style={buttonStyles.OneToOneCoachingButton}*/}
-        {/*        href={ONE_TO_ONE_COACHING_LINK}*/}
-        {/*    >*/}
-        {/*        1:1 Coaching*/}
-        {/*    </Button>*/}
-        {/*    <Button*/}
-        {/*        variant="contained"*/}
-        {/*        style={buttonStyles.StorySoFarButton}*/}
-        {/*        href={STORY_SO_FAR_LINK}*/}
-        {/*    >*/}
-        {/*        Story So Far...*/}
-        {/*    </Button>*/}
-        {/*</Box>*/}
-    </div>
-);
+const LinkButtons = () => {
+    const dispatch = useDispatch();
+    const setLastSeenSpotifyFn = () => {
+        dispatch(markLastSeenSpotify(now()));
+    };
+    return (
+        <div style={styles.group}>
+            <Tooltip title="Spotify">
+                <IconButton
+                    style={styles.DarkClick}
+                    onClick={() => {
+                        setLastSeenSpotifyFn();
+                        navigateExternal(PODCAST_LINK);
+                    }}
+                >
+                    <Image src={spotifyDark} width={22} height={22}/>
+                </IconButton>
+            </Tooltip>
+            <Tooltip title="YouTube">
+                <IconButton
+                    style={styles.DarkClick}
+                    href={YOUTUBE_LINK}
+                >
+                    <YouTube/>
+                </IconButton>
+            </Tooltip>
+            <Tooltip title="SoundCloud">
+                <IconButton
+                    style={styles.DarkClick}
+                    href={SOUND_CLOUD_LINK}
+                >
+                    <Image src={soundCloudDark} width={22} height={22}/>
+                </IconButton>
+            </Tooltip>
+            <Tooltip title="Patreon">
+                <IconButton
+                    style={styles.DarkClick}
+                    href={PATREON_LINK}
+                >
+                    <Image src={patreonDark} width={20} height={20}/>
+                </IconButton>
+            </Tooltip>
+            <Tooltip title="Email">
+                <IconButton
+                    style={styles.DarkClick}
+                    href={`mailto:${EMAIL}`}
+                >
+                    <EmailRounded/>
+                </IconButton>
+            </Tooltip>
+            <Tooltip title="Twitter">
+                <IconButton
+                    style={styles.DarkClick}
+                    href={TWITTER_LINK}
+                >
+                    <Twitter/>
+                </IconButton>
+            </Tooltip>
+        </div>
+    );
+};
 
 export default LinkButtons;
