@@ -1,8 +1,7 @@
-import { Autocomplete, Container, Grid, TextField } from "@mui/material";
-import { CSSProperties, useEffect, useMemo, useState } from "react";
-import { Dropdown, DropdownButton } from "react-bootstrap";
+import { Container, Grid } from "@mui/material";
+import { CSSProperties, useEffect, useState } from "react";
 import { useSelector } from "react-redux";
-import { useLocation, useNavigate } from "react-router-dom";
+import { NavigateFunction, useLocation, useNavigate } from "react-router-dom";
 import { Blogs, IBlog } from "../../articles";
 import { selectSeenArticles } from "../../redux/selectors";
 import {
@@ -13,8 +12,11 @@ import {
     reverseChronologically,
     unread
 } from "../../utils";
-import { BlogStub, Title } from "../molecules";
+import { BlogStub, FilterDropdown, SortDropdown, Title } from "../molecules";
+import ArticleAutocomplete from "../molecules/ArticleAutocomplete";
+import { IFilterOption } from "../molecules/FilterDropdown";
 import { ARTICLES_LINK } from "../molecules/LinkButtons";
+import { ISortOption } from "../molecules/SortDropdown";
 
 
 const styles: Record<string, CSSProperties> = {
@@ -27,21 +29,22 @@ const styles: Record<string, CSSProperties> = {
     }
 };
 
-const ARTICLE_SORT_OPTIONS = [
-    "Chronologically",
-    "Reverse-Chronologically",
-    "Alphabetically",
-    "Reverse-Alphabetically",
-    "Unread",
-    "Read"
-] as const;
-export type IArticleSortOption = typeof ARTICLE_SORT_OPTIONS[number];
+export interface ArticleListPath {
+    sort?: ISortOption;
+    filter?: IFilterOption;
+}
+
+export const navigateArticleList = (navigate: NavigateFunction, options?: ArticleListPath) => {
+    navigate(ARTICLES_LINK, {state: options ?? {}});
+};
 
 const ArticlesListPage = () => {
 
+    const [ sortBy, setSortBy ] = useState<ISortOption>("None");
+    const [ filterBy, setFilterBy ] = useState<IFilterOption>("None");
+
     const [ filterText, setFilterText ] = useState("");
-    const [ sortBy, setSortBy ] = useState<IArticleSortOption | undefined>();
-    const [ sortMethod, setSortMethod ] = useState<IArticleSortOption>("Reverse-Chronologically");
+    const [ value, setValue ] = useState<string | null>(null);
 
     const [ allArticles, setAllArticles ] = useState<IBlog[]>([]);
     const seenArticles = useSelector(selectSeenArticles);
@@ -54,36 +57,34 @@ const ArticlesListPage = () => {
     }, []);
 
     useEffect(() => {
-        if (sortBy) {
-            navigate(ARTICLES_LINK, {state: {sort: sortBy}});
+        if (sortBy && sortBy !== "None" && filterBy && filterBy !== "None") {
+            navigateArticleList(navigate, {sort: sortBy, filter: filterBy});
+        } else if (sortBy && sortBy !== "None") {
+            navigateArticleList(navigate, {sort: sortBy});
+        } else if (filterBy && filterBy !== "None") {
+            navigateArticleList(navigate, {filter: filterBy});
         }
-    }, [ sortBy ]);
+    }, [ sortBy, filterBy ]);
 
     useEffect(() => {
-        const sortMethod = (location.state as any).sort;
-        setSortMethod(sortMethod);
+        const sortBy = (location.state as any).sort;
+        setSortBy(sortBy ?? "None");
+        const filterBy = (location.state as any).filter;
+        setFilterBy(filterBy ?? "None");
     }, [ location ]);
 
-    const filtered = (articles: IBlog[]): IBlog[] =>
+    const textFiltered = (articles: IBlog[]): IBlog[] =>
         articles.filter((article) =>
             article.title.toLowerCase().includes(filterText.toLowerCase()) ||
             article.shortTitle.toLowerCase().includes(filterText.toLowerCase()) ||
             article.excerpt.toLowerCase().includes(filterText.toLowerCase())
         );
 
-    const sorted = (articles: IBlog[], sortedBy: IArticleSortOption): IBlog[] => {
-        if (sortedBy) {
-            if (sortedBy === "Chronologically") {
-                return articles.sort(chronologically);
-            } else if (sortedBy === "Reverse-Chronologically") {
-                return articles.sort(reverseChronologically);
-            } else if (sortedBy === "Alphabetically") {
-                return articles.sort(alphabetically);
-            } else if (sortedBy === "Reverse-Alphabetically") {
-                return articles.sort(reverseAlphabetically);
-            } else if (sortedBy === "Read") {
+    const filtered = (articles: IBlog[]): IBlog[] => {
+        if (filterBy) {
+            if (filterBy === "Read") {
                 return articles.filter(read(seenArticles));
-            } else if (sortedBy === "Unread") {
+            } else if (filterBy === "Unread") {
                 return articles.filter(unread(seenArticles));
             } else {
                 return articles;
@@ -93,76 +94,56 @@ const ArticlesListPage = () => {
         }
     };
 
-    const sortedFilteredArticles = useMemo(() => {
-        const filteredArticles = filtered(allArticles);
-        console.log(filteredArticles.length);
-        console.log(sortMethod);
-        return sorted(filteredArticles, sortMethod);
-    }, [ allArticles, filterText, sortMethod ]);
+    const sorted = (articles: IBlog[]): IBlog[] => {
+        if (sortBy) {
+            if (sortBy === "Chronologically") {
+                return articles.sort(chronologically);
+            } else if (sortBy === "Reverse-Chronologically") {
+                return articles.sort(reverseChronologically);
+            } else if (sortBy === "Alphabetically") {
+                return articles.sort(alphabetically);
+            } else if (sortBy === "Reverse-Alphabetically") {
+                return articles.sort(reverseAlphabetically);
+            } else {
+                return articles;
+            }
+        } else {
+            return articles;
+        }
+    };
 
-    const options = Blogs.sort((a, b) =>
-        a.shortTitle < b.shortTitle ? -1 : 1
-    ).map((article) => article.shortTitle);
-    const [ value, setValue ] = useState<string | null>(null);
-    const [ inputValue, setInputValue ] = useState("");
-
-    const [ viewWhich, setViewWhich ] = useState<"All" | "Read" | "Unread">("All");
+    const articles = textFiltered(sorted(filtered(allArticles)));
 
     return (
         <Container maxWidth="md" style={styles.Container}>
             <Title/>
-            {/*<Logo size="sm"/>*/}
             <Grid container spacing={2} style={{marginBottom: 10}}>
                 <Grid item xs={5} style={styles.AlignDown}>
                     <h3> Articles </h3>
                 </Grid>
                 <Grid item xs={5} style={{textAlign: "right"}}>
-                    <Autocomplete
-                        freeSolo
-                        disablePortal
-                        options={options}
-                        renderInput={(params) => <TextField {...params} label="Article Title/Content"/>}
+                    <ArticleAutocomplete
                         value={value}
-                        onChange={(event: any, newValue: string | null) => {
-                            setValue(newValue);
-                            setFilterText(newValue === null ? "" : newValue);
-                        }}
-                        inputValue={inputValue}
-                        onInputChange={(event, newInputValue) => {
-                            setInputValue(newInputValue);
-                            setFilterText(newInputValue);
-                        }}
+                        setValue={setValue}
+                        setText={setFilterText}
                     />
                 </Grid>
                 <Grid item xs={1} style={styles.AlignDown}>
-                    {/*<Tooltip title={viewWhich}>*/}
-                    {/*    <IconButton>*/}
-                    {/*        {*/}
-                    {/*            viewWhich === "Read" ? (*/}
-                    {/*                    <VisibilityRounded/>*/}
-                    {/*                ) :*/}
-                    {/*                viewWhich === "Unread" ? (*/}
-                    {/*                        <VisibilityOffRounded/>*/}
-                    {/*                    ) :*/}
-                    {/*                    viewWhich === "All" && (*/}
-                    {/*                        <VisibilityRounded/>*/}
-                    {/*                    )*/}
-                    {/*        }*/}
-                    {/*    </IconButton>*/}
-                    {/*</Tooltip>*/}
-                    <DropdownButton title="Sort" menuVariant="dark" variant="secondary"
-                                    onSelect={e => setSortBy(e as unknown as IArticleSortOption)}>
-                        {
-                            ARTICLE_SORT_OPTIONS.map((option) => (
-                                <Dropdown.Item key={option} eventKey={option}>{option}</Dropdown.Item>
-                            ))
-                        }
-                    </DropdownButton>
+                    <SortDropdown
+                        sortBy={sortBy}
+                        setSortBy={setSortBy}
+                    />
+                </Grid>
+                <Grid item xs={1} style={styles.AlignDown}>
+                    <FilterDropdown
+                        filterBy={filterBy}
+                        setFilterBy={setFilterBy}
+                    />
                 </Grid>
             </Grid>
             {
-                sortedFilteredArticles.length > 0 ?
-                    sortedFilteredArticles.map((article) => (
+                articles.length > 0 ?
+                    articles.map((article) => (
                         <BlogStub
                             key={article.id}
                             blog={article}

@@ -25,8 +25,8 @@ import { markLastSeenSpotify } from "../../redux/actions";
 import { selectLastSeenSpotifyDate, selectSeenArticles } from "../../redux/selectors";
 import spotifyWhite from "../../resources/spotify-white.png";
 import { dayDifference, navigateExternal, now } from "../../utils";
+import { navigateArticleList } from "../pages/ArticlesListPage";
 import {
-    ARTICLES_LINK,
     EBOOK_LINK,
     NEWSLETTER_LINK,
     ONE_TO_ONE_COACHING_LINK,
@@ -137,7 +137,7 @@ export default () => {
                         >
                             <StyledMenuItem
                                 onClick={() => {
-                                    navigate(ARTICLES_LINK, {state: {sort: "Reverse-Chronologically"}});
+                                    navigateArticleList(navigate, {sort: "Reverse-Chronologically"});
                                 }}
                             >
                                 <LibraryBooksOutlined style={styles.MenuIcon}/>
@@ -208,7 +208,7 @@ export default () => {
                                     aria-label={`${numUnseenArticles} new notifications`}
                                     color="inherit"
                                     onClick={() => {
-                                        navigate(ARTICLES_LINK, {state: {sort: "Unread"}});
+                                        navigateArticleList(navigate, {filter: "Unread"});
                                     }}
                                 >
                                     <Badge badgeContent={numUnseenArticles} color="warning">
