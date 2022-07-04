@@ -1,0 +1,6 @@
+- `Drive` by Daniel Pink
+- `Atomic Habits` by James Clear
+- `Grit` by Angela Ducksworth
+- `The Subtle Art of Not Giving a F*ck` by Mark Manson
+- `Everything is F*cked` by Mark Manson
+- `Free Range Humans` by Marianne Cantwell

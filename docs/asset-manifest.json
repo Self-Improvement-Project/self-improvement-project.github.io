@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/static/css/main.b46989a2.css",
-    "main.js": "/static/js/main.9027a0a9.js",
+    "main.js": "/static/js/main.daf10119.js",
     "static/js/787.9e0c1f39.chunk.js": "/static/js/787.9e0c1f39.chunk.js",
     "static/media/white-simple-podcast-review-instagram-story.png": "/static/media/white-simple-podcast-review-instagram-story.2aecf85edb3609f9bccd.png",
     "static/media/white-simple-podcast-review-instagram-story-2.png": "/static/media/white-simple-podcast-review-instagram-story-2.338cc06d2701c5d6216a.png",
@@ -12,7 +12,10 @@
     "static/media/spotify-white.png": "/static/media/spotify-white.ef90575892546bbdfade.png",
     "static/media/Simple_Life_Habits_Learnt_From_Years_Of_Curiosity.md": "/static/media/Simple_Life_Habits_Learnt_From_Years_Of_Curiosity.e05ce496e14e2c79384f.md",
     "static/media/Eight_Week_Wake_Up_Coaching_Program.md": "/static/media/Eight_Week_Wake_Up_Coaching_Program.c15a95922ee18eee4211.md",
+    "static/media/An_Infinite_Mindset.md": "/static/media/An_Infinite_Mindset.2337c41de86728d3dd20.md",
+    "static/media/Slowing_Down_In_A_Fast_World.md": "/static/media/Slowing_Down_In_A_Fast_World.df65e62342406aa480dd.md",
     "static/media/Be_More_Thankful.md": "/static/media/Be_More_Thankful.9f3de63f1de73faea9cd.md",
+    "static/media/Self_Relection.md": "/static/media/Self_Relection.7a932cb8dfd53bf7808d.md",
     "static/media/Be_The_Uplifter.md": "/static/media/Be_The_Uplifter.f849afe0dcf6db01f7e0.md",
     "static/media/Find_Better_Happiness.md": "/static/media/Find_Better_Happiness.f3a5bc9e3e1aca892eb0.md",
     "static/media/An_Identity_Prison.md": "/static/media/An_Identity_Prison.ffc735e52efe8dd8ae32.md",
@@ -27,12 +30,13 @@
     "static/media/Self_Awareness_For_Working_Adults.md": "/static/media/Self_Awareness_For_Working_Adults.9112a8be1bcab5e34680.md",
     "static/media/The_Simple_Life.md": "/static/media/The_Simple_Life.cc436a0edaebd4f2943a.md",
     "index.html": "/index.html",
+    "static/media/Book_Recommendations_For_Starting_Self_Development.md": "/static/media/Book_Recommendations_For_Starting_Self_Development.bb64f4436ef2756b585b.md",
     "main.b46989a2.css.map": "/static/css/main.b46989a2.css.map",
-    "main.9027a0a9.js.map": "/static/js/main.9027a0a9.js.map",
+    "main.daf10119.js.map": "/static/js/main.daf10119.js.map",
     "787.9e0c1f39.chunk.js.map": "/static/js/787.9e0c1f39.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.b46989a2.css",
-    "static/js/main.9027a0a9.js"
+    "static/js/main.daf10119.js"
   ]
 }
