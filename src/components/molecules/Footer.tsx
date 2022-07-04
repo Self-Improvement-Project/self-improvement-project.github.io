@@ -9,7 +9,7 @@ import { markLastSeenSpotify } from "../../redux/actions";
 import patreonDark from "../../resources/patreon-dark.png";
 import spotifyDark from "../../resources/spotify-dark.png";
 import { navigateExternal, now } from "../../utils";
-import { EMAIL, GITHUB_LINK, PATREON_LINK, PODCAST_LINK, TWITTER_LINK, YOUTUBE_LINK } from "./LinkButtons";
+import { Divider, EMAIL, GITHUB_LINK, PATREON_LINK, PODCAST_LINK, TWITTER_LINK, YOUTUBE_LINK } from "./LinkButtons";
 
 
 const styles: Record<string, CSSProperties> = {
@@ -93,6 +93,7 @@ const Footer = () => {
                                 <Image src={patreonDark} width={20} height={20}/>
                             </IconButton>
                         </Tooltip>
+                        <Divider> | </Divider>
                         <Tooltip title="Email">
                             <IconButton
                                 style={styles.DarkClick}

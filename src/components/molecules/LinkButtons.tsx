@@ -4,6 +4,7 @@ import * as React from "react";
 import { CSSProperties } from "react";
 import { Image } from "react-bootstrap";
 import { useDispatch } from "react-redux";
+import styled from "styled-components";
 import { markLastSeenSpotify } from "../../redux/actions";
 import patreonDark from "../../resources/patreon-dark.png";
 import soundCloudDark from "../../resources/sound-cloud-dark.png";
@@ -29,6 +30,15 @@ const styles: Record<string, CSSProperties> = {
         marginBottom: 20
     }
 };
+
+export const Divider = styled.span`
+  font-size: 20px;
+  color: #868686;
+  font-style: normal;
+  text-align: center;
+  justify-content: center;
+  margin-top: 5px;
+`;
 
 export const EBOOK_LINK = "https://lawrencemcl.gumroad.com/l/uIpgy";
 export const YOUTUBE_LINK = "https://www.youtube.com/channel/UCSENKoMvOBCNtHJF0SP4znA";
@@ -78,6 +88,7 @@ const LinkButtons = () => {
                     <Image src={soundCloudDark} width={22} height={22}/>
                 </IconButton>
             </Tooltip>
+            <Divider> | </Divider>
             <Tooltip title="Patreon">
                 <IconButton
                     style={styles.DarkClick}
