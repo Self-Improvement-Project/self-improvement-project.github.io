@@ -2,6 +2,11 @@
 
 *"It might be exactly what you need to hear today"* - Lawrence McLelland
 
+### Contributors
+
+<img width="50" height="50" style="border-radius: 50%;" title="Lawrence McLelland" alt="Lawrence McLelland" src="./src/resources/lawrence_image.png"/>
+<img width="50" height="50" style="border-radius: 50%;" title="Matt Stillwell" alt="Matt Stillwell" src="https://avatars.githubusercontent.com/u/18670089?v=4"/>
+
 ### Tech Stack
 
 - [React](https://reactjs.org)
