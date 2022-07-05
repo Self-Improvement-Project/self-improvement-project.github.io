@@ -4,16 +4,10 @@
 
 ### Contributors
 
-<style>
-  img[src$="#profile"] {
-    width: 50px; 
-    height: 50px;
-    border-radius: 50%;
-  }
-</style>
-
-![Lawrence McLelland](https://avatars.githubusercontent.com/u/105018579?s=200&v=4#profile)
-![Matt Stillwell](https://avatars.githubusercontent.com/u/18670089?v=4#profile)
+<div style="display: flex;">
+  <img width="50" height="50" style="border-radius: 50%; margin-right: 10px;" title="Lawrence McLelland" alt="Lawrence McLelland" src="https://avatars.githubusercontent.com/u/105018579?s=200&v=4"/>
+  <img width="50" height="50" style="border-radius: 50%; margin-right: 10px;" title="Matt Stillwell" alt="Matt Stillwell" src="https://avatars.githubusercontent.com/u/18670089?v=4"/>
+</div>
 
 ### Tech Stack
 
