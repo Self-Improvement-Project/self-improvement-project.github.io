@@ -1,14 +1,14 @@
 {
   "files": {
     "main.css": "/static/css/main.b46989a2.css",
-    "main.js": "/static/js/main.daf10119.js",
+    "main.js": "/static/js/main.9296fc3e.js",
     "static/js/787.9e0c1f39.chunk.js": "/static/js/787.9e0c1f39.chunk.js",
     "static/media/white-simple-podcast-review-instagram-story.png": "/static/media/white-simple-podcast-review-instagram-story.2aecf85edb3609f9bccd.png",
     "static/media/white-simple-podcast-review-instagram-story-2.png": "/static/media/white-simple-podcast-review-instagram-story-2.338cc06d2701c5d6216a.png",
     "static/media/white-simple-podcast-review-instagram-story-1.png": "/static/media/white-simple-podcast-review-instagram-story-1.32f812e3a21cee92d249.png",
+    "static/media/lawrence.png": "/static/media/lawrence.1fb06fcdfc6ed22ea3ff.png",
     "static/media/self-improvement-project_text_transparent.png": "/static/media/self-improvement-project_text_transparent.97fb12995568aa8d13ea.png",
     "static/media/self-improvement-project-transparent.png": "/static/media/self-improvement-project-transparent.e00c2566a6eed4eb027a.png",
-    "static/media/patreon-dark.png": "/static/media/patreon-dark.7d32533390d5488b1b0c.png",
     "static/media/spotify-white.png": "/static/media/spotify-white.ef90575892546bbdfade.png",
     "static/media/Simple_Life_Habits_Learnt_From_Years_Of_Curiosity.md": "/static/media/Simple_Life_Habits_Learnt_From_Years_Of_Curiosity.e05ce496e14e2c79384f.md",
     "static/media/Eight_Week_Wake_Up_Coaching_Program.md": "/static/media/Eight_Week_Wake_Up_Coaching_Program.c15a95922ee18eee4211.md",
@@ -32,11 +32,11 @@
     "index.html": "/index.html",
     "static/media/Book_Recommendations_For_Starting_Self_Development.md": "/static/media/Book_Recommendations_For_Starting_Self_Development.bb64f4436ef2756b585b.md",
     "main.b46989a2.css.map": "/static/css/main.b46989a2.css.map",
-    "main.daf10119.js.map": "/static/js/main.daf10119.js.map",
+    "main.9296fc3e.js.map": "/static/js/main.9296fc3e.js.map",
     "787.9e0c1f39.chunk.js.map": "/static/js/787.9e0c1f39.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.b46989a2.css",
-    "static/js/main.daf10119.js"
+    "static/js/main.9296fc3e.js"
   ]
 }
