@@ -3,14 +3,13 @@ import {
     LibraryBooks,
     LibraryBooksOutlined,
     LightbulbOutlined,
-    MailOutlineRounded,
     MenuBookTwoTone,
+    Message,
     PersonOutlined
 } from "@mui/icons-material";
 import MenuIcon from "@mui/icons-material/Menu";
 import { Menu, MenuItem, Tooltip } from "@mui/material";
 import AppBar from "@mui/material/AppBar";
-import Badge from "@mui/material/Badge";
 import Box from "@mui/material/Box";
 import IconButton from "@mui/material/IconButton";
 import Toolbar from "@mui/material/Toolbar";
@@ -23,7 +22,7 @@ import styled from "styled-components";
 import { Blogs } from "../../articles";
 import { markLastSeenSpotify } from "../../redux/actions";
 import { selectLastSeenSpotifyDate, selectSeenArticles } from "../../redux/selectors";
-import spotifyWhite from "../../resources/spotify-white.png";
+import spotifyWhiteLogo from "../../resources/spotify-white.png";
 import { dayDifference, navigateExternal, now } from "../../utils";
 import { navigateArticleList } from "../pages/ArticlesListPage";
 import {
@@ -36,6 +35,8 @@ import {
 } from "./LinkButtons";
 import Logo from "./Logo";
 
+
+const logoSize = 25;
 
 const styles: Record<string, CSSProperties> = {
     Logo: {
@@ -137,6 +138,14 @@ export default () => {
                         >
                             <StyledMenuItem
                                 onClick={() => {
+                                    navigateExternal(NEWSLETTER_LINK);
+                                }}
+                            >
+                                <Message style={styles.MenuIcon}/>
+                                <span> Newsletter </span>
+                            </StyledMenuItem>
+                            <StyledMenuItem
+                                onClick={() => {
                                     navigateArticleList(navigate, {sort: "Reverse-Chronologically"});
                                 }}
                             >
@@ -160,14 +169,6 @@ export default () => {
                             </StyledMenuItem>
                             <StyledMenuItem
                                 onClick={() => {
-                                    navigateExternal(NEWSLETTER_LINK);
-                                }}
-                            >
-                                <MailOutlineRounded style={styles.MenuIcon}/>
-                                <span> Newsletter </span>
-                            </StyledMenuItem>
-                            <StyledMenuItem
-                                onClick={() => {
                                     navigate(ONE_TO_ONE_COACHING_LINK);
                                 }}
                             >
@@ -187,19 +188,15 @@ export default () => {
                     <Box sx={{flexGrow: 1}}/>
                     <RightSection>
                         <Box>
-                            <Tooltip title="Spotify">
+                            <Tooltip title="Weekly Newsletter">
                                 <IconButton
                                     size="large"
-                                    aria-label="spotify"
                                     style={styles.LightClick}
                                     onClick={() => {
-                                        setLastSeenSpotifyFn();
                                         navigateExternal(PODCAST_LINK);
                                     }}
                                 >
-                                    <Badge badgeContent={numUnseenSpotifyTracks} color="warning">
-                                        <Image src={spotifyWhite} width={25} height={25}/>
-                                    </Badge>
+                                    <Message/>
                                 </IconButton>
                             </Tooltip>
                             <Tooltip title="Unread Articles">
@@ -211,9 +208,24 @@ export default () => {
                                         navigateArticleList(navigate, {filter: "Unread"});
                                     }}
                                 >
-                                    <Badge badgeContent={numUnseenArticles} color="warning">
-                                        <LibraryBooks/>
-                                    </Badge>
+                                    {/*<Badge badgeContent={numUnseenArticles} color="warning">*/}
+                                    <LibraryBooks/>
+                                    {/*</Badge>*/}
+                                </IconButton>
+                            </Tooltip>
+                            <Tooltip title="Spotify">
+                                <IconButton
+                                    size="large"
+                                    aria-label="spotify"
+                                    style={styles.LightClick}
+                                    onClick={() => {
+                                        setLastSeenSpotifyFn();
+                                        navigateExternal(PODCAST_LINK);
+                                    }}
+                                >
+                                    {/*<Badge badgeContent={numUnseenSpotifyTracks} color="warning">*/}
+                                    <Image src={spotifyWhiteLogo} width={logoSize} height={logoSize}/>
+                                    {/*</Badge>*/}
                                 </IconButton>
                             </Tooltip>
                         </Box>
