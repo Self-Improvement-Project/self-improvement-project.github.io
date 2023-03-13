@@ -1,10 +1,16 @@
-import { Container } from "@mui/material";
+import { Container, Link } from "@mui/material";
 import * as React from "react";
 import { CSSProperties } from "react";
 import { Col, Image, Row } from "react-bootstrap";
 import { getRecentBlogs } from "../../articles";
 import photo from "../../resources/lawrence.png";
 import { BlogStub, LinkButtons, Logo, RadioStatementsCarousel, Title } from "../molecules";
+import {
+    COACHING_PAYMENT_LINK,
+    EBOOK_LINK,
+    PODCAST_SUBSCRIPTION_LINK,
+    SELF_LED_ONLINE_COURSE_LINK
+} from "../molecules/LinkButtons";
 
 
 const photoWidth = 300;
@@ -30,6 +36,17 @@ const styles: Record<string, CSSProperties> = {
         fontSize: 16,
         fontWeight: "bold"
     },
+    productGroup: {
+        fontSize: 16,
+        textAlign: "center",
+        paddingBottom: 25,
+        backgroundColor: "rgb(252,207,227)",
+        border: "solid 2px rgb(234,185,208)",
+        borderRadius: 15,
+        padding: "20px 5px 0px 5px",
+        marginBottom: 20,
+        minHeight: 193
+    },
     infoGroup1: {
         fontSize: 16,
         textAlign: "center",
@@ -50,6 +67,9 @@ const styles: Record<string, CSSProperties> = {
         padding: "20px 5px 0px 5px",
         marginBottom: 20,
         minHeight: 192
+        // maxWidth: "80%",
+        // display: "flex",
+        // alignItems: "center"
     },
     padded: {
         paddingBottom: 8
@@ -65,7 +85,7 @@ const styles: Record<string, CSSProperties> = {
 };
 
 const HomePage = () => {
-    const bullet = "•"; //"◦";
+    const bullet = "•";
     return (
         <Container maxWidth="md" style={styles.Container}>
             <Title/>
@@ -86,65 +106,88 @@ const HomePage = () => {
                 </p>
             </Container>
 
-            <Image src={photo} width={photoWidth} height={photoHeight} style={{borderRadius: 200}}/>
-
-            <p>
-                Hey I'm Lawrence and I created this podcast to improve people's lives. I remember becoming really
-                disillusioned with many things like work and education so I thought I'd create my own self-education
-                project which has evolved into a lot of my own thoughts about how we should live our life to the
-                fullest. The fun thing about this podcast is that it'll never end as I'll always be curious about the
-                art of self-improvement.
-            </p>
-
             <LinkButtons/>
 
-            <Container maxWidth={"md"}>
-                <div>
-                    <Row>
-                        <Col md={6}>
-                            <div style={styles.infoGroup1}>
-                                <p style={styles.padded}>
-                                    <span style={styles.infoTitle}> Me in 10 seconds </span><br/>
-                                    <li style={styles.undecorated}>
-                                        {bullet} I work on episodes of this podcast weekly
-                                    </li>
-                                    <li style={styles.undecorated}>
-                                        {bullet} I’ve worked in education for 10 years
-                                    </li>
-                                    <li style={styles.undecorated}>
-                                        {bullet} I have a black Labrador 🐾
-                                    </li>
-                                    <li style={styles.undecorated}>
-                                        {bullet} I enjoy cycling & football
-                                    </li>
-                                    <li style={styles.undecorated}>
-                                        {bullet} I love Espresso ☕️
-                                    </li>
-                                </p>
-                            </div>
-                        </Col>
-                        <Col md={6}>
-                            <div style={styles.infoGroup2}>
-                                <p style={styles.padded}>
-                                    <span style={styles.infoTitle}> What Am I Up To Right Now? </span><br/>
-                                    <li style={styles.undecorated}>
-                                        {bullet} Podcasting weekly
-                                    </li>
-                                    <li style={styles.undecorated}>
-                                        {bullet} Writing weekly
-                                    </li>
-                                    <li style={styles.undecorated}>
-                                        {bullet} Working towards 1,000 true fans
-                                    </li>
-                                    <li style={styles.undecorated}>
-                                        {bullet} Building my 1:1 Coaching
-                                    </li>
-                                </p>
-                            </div>
-                        </Col>
-                    </Row>
-                </div>
-            </Container>
+            <Row style={{marginTop: 50, marginBottom: 50}}>
+                <Col md={6}>
+                    <Image src={photo} width={photoWidth} height={photoHeight} style={{borderRadius: 200}}/>
+                </Col>
+                <Col md={6} style={{display: "flex", alignItems: "center", paddingTop: 20}}>
+                    <p>
+                        Hey I'm Lawrence and I created this podcast to improve people's lives. I remember becoming
+                        really
+                        disillusioned with many things like work and education so I thought I'd create my own
+                        self-education
+                        project which has evolved into a lot of my own thoughts about how we should live our life to the
+                        fullest. The fun thing about this podcast is that it'll never end as I'll always be curious
+                        about the
+                        art of self-improvement.
+                    </p>
+                </Col>
+            </Row>
+
+            <Row>
+                <Col md={5}>
+                    <div style={styles.infoGroup1}>
+                        <p style={styles.padded}>
+                            <span style={styles.infoTitle}> Me in 10 seconds </span><br/>
+                            <li style={styles.undecorated}>
+                                {bullet} I work on episodes of this podcast weekly
+                            </li>
+                            <li style={styles.undecorated}>
+                                {bullet} I’ve worked in education for 10 years
+                            </li>
+                            <li style={styles.undecorated}>
+                                {bullet} I have a black Labrador 🐾
+                            </li>
+                            <li style={styles.undecorated}>
+                                {bullet} I enjoy cycling & football
+                            </li>
+                            <li style={styles.undecorated}>
+                                {bullet} I love Espresso ☕️
+                            </li>
+                        </p>
+                    </div>
+                </Col>
+                <Col md={3}>
+                    <div style={styles.productGroup}>
+                        <span style={styles.infoTitle}> My Products </span><br/>
+                        <p style={{margin: 0}}>
+                            {bullet} <Link style={{color: "purple"}} href={COACHING_PAYMENT_LINK}>Coaching</Link>
+                        </p>
+                        <p style={{margin: 0}}>
+                            {bullet} <Link style={{color: "purple"}} href={EBOOK_LINK}>Free eBook</Link>
+                        </p>
+                        <p style={{margin: 0}}>
+                            {bullet} <Link style={{color: "purple"}} href={SELF_LED_ONLINE_COURSE_LINK}>Paid
+                            eBook</Link>
+                        </p>
+                        <p style={{margin: 0, marginBottom: 20}}>
+                            {bullet} <Link style={{color: "purple"}} href={PODCAST_SUBSCRIPTION_LINK}>Podcast
+                            Subscription</Link>
+                        </p>
+                    </div>
+                </Col>
+                <Col md={4}>
+                    <div style={styles.infoGroup2}>
+                        <p style={styles.padded}>
+                            <span style={styles.infoTitle}> What Am I Up To Right Now? </span><br/>
+                            <li style={styles.undecorated}>
+                                {bullet} Podcasting weekly
+                            </li>
+                            <li style={styles.undecorated}>
+                                {bullet} Writing weekly
+                            </li>
+                            <li style={styles.undecorated}>
+                                {bullet} Working towards 1,000 true fans
+                            </li>
+                            <li style={styles.undecorated}>
+                                {bullet} Building my 1:1 Coaching
+                            </li>
+                        </p>
+                    </div>
+                </Col>
+            </Row>
 
             <RadioStatementsCarousel/>
 
