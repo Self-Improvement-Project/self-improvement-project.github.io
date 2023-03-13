@@ -6,11 +6,12 @@ import { Image } from "react-bootstrap";
 import { useDispatch } from "react-redux";
 import styled from "styled-components";
 import { markLastSeenSpotify } from "../../redux/actions";
-import patreonDark from "../../resources/patreon-dark.png";
-import soundCloudDark from "../../resources/sound-cloud-dark.png";
-import spotifyDark from "../../resources/spotify-dark.png";
+import mediumLogo from "../../resources/medium.png";
+import spotifyDarkLogo from "../../resources/spotify-dark.png";
 import { navigateExternal, now } from "../../utils";
 
+
+const logoSize = 22;
 
 const styles: Record<string, CSSProperties> = {
     SpacedOut: {
@@ -49,9 +50,8 @@ export const EMAIL = "lawrence.selfimprove@gmail.com";
 export const SELF_LED_ONLINE_COURSE_LINK = "https://lawrencemcl.gumroad.com/l/JSZyK?_ga=2.255189960.1104408546.1637501051-2090084602.1632476918&_gl=1*ipzws7*_ga*MjA5MDA4NDYwMi4xNjMyNDc2OTE4*_ga_6LJN6D94N6*MTYzNzYwMzQzNi4xMy4xLjE2Mzc2MDM0NDAuMA..";
 export const ONE_TO_ONE_COACHING_LINK = "/articles/Eight-Week-Wake-Up-Coaching-Program";
 export const STORY_SO_FAR_LINK = "/articles/My-Story-So-Far";
-export const PATREON_LINK = "https://www.patreon.com/tsip";
 export const GITHUB_LINK = "https://github.com/Self-Improvement-Project/self-improvement-project.github.io";
-export const SOUND_CLOUD_LINK = "https://soundcloud.com/user-620056653?ref=clipboard&p=i&c=1";
+export const MEDIUM_LINK = "https://medium.com/@lawrence.selfimprove";
 export const ARTICLES_LINK = "/articles";
 
 const LinkButtons = () => {
@@ -69,7 +69,7 @@ const LinkButtons = () => {
                         navigateExternal(PODCAST_LINK);
                     }}
                 >
-                    <Image src={spotifyDark} width={22} height={22}/>
+                    <Image src={spotifyDarkLogo} width={logoSize} height={logoSize}/>
                 </IconButton>
             </Tooltip>
             <Tooltip title="YouTube">
@@ -80,21 +80,12 @@ const LinkButtons = () => {
                     <YouTube/>
                 </IconButton>
             </Tooltip>
-            <Tooltip title="SoundCloud">
+            <Tooltip title="Medium">
                 <IconButton
                     style={styles.DarkClick}
-                    href={SOUND_CLOUD_LINK}
+                    href={MEDIUM_LINK}
                 >
-                    <Image src={soundCloudDark} width={22} height={22}/>
-                </IconButton>
-            </Tooltip>
-            <Divider> | </Divider>
-            <Tooltip title="Patreon">
-                <IconButton
-                    style={styles.DarkClick}
-                    href={PATREON_LINK}
-                >
-                    <Image src={patreonDark} width={20} height={20}/>
+                    <Image src={mediumLogo} width={logoSize} height={logoSize}/>
                 </IconButton>
             </Tooltip>
             <Tooltip title="Email">

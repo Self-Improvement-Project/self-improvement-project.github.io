@@ -6,11 +6,13 @@ import { Col, Image, Row } from "react-bootstrap";
 import { useDispatch } from "react-redux";
 import styled from "styled-components";
 import { markLastSeenSpotify } from "../../redux/actions";
-import patreonDark from "../../resources/patreon-dark.png";
-import spotifyDark from "../../resources/spotify-dark.png";
+import mediumLogo from "../../resources/medium.png";
+import spotifyDarkLogo from "../../resources/spotify-dark.png";
 import { navigateExternal, now } from "../../utils";
-import { Divider, EMAIL, GITHUB_LINK, PATREON_LINK, PODCAST_LINK, TWITTER_LINK, YOUTUBE_LINK } from "./LinkButtons";
+import { Divider, EMAIL, GITHUB_LINK, MEDIUM_LINK, PODCAST_LINK, TWITTER_LINK, YOUTUBE_LINK } from "./LinkButtons";
 
+
+const logoSize = 22;
 
 const styles: Record<string, CSSProperties> = {
     Footer: {
@@ -74,7 +76,7 @@ const Footer = () => {
                                     navigateExternal(PODCAST_LINK);
                                 }}
                             >
-                                <Image src={spotifyDark} width={22} height={22}/>
+                                <Image src={spotifyDarkLogo} width={logoSize} height={logoSize}/>
                             </IconButton>
                         </Tooltip>
                         <Tooltip title="YouTube">
@@ -85,12 +87,12 @@ const Footer = () => {
                                 <YouTube/>
                             </IconButton>
                         </Tooltip>
-                        <Tooltip title="Patreon">
+                        <Tooltip title="Medium">
                             <IconButton
                                 style={styles.DarkClick}
-                                href={PATREON_LINK}
+                                href={MEDIUM_LINK}
                             >
-                                <Image src={patreonDark} width={20} height={20}/>
+                                <Image src={mediumLogo} width={logoSize} height={logoSize}/>
                             </IconButton>
                         </Tooltip>
                         <Divider> | </Divider>

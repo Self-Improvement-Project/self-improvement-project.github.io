@@ -23,7 +23,7 @@ import styled from "styled-components";
 import { Blogs } from "../../articles";
 import { markLastSeenSpotify } from "../../redux/actions";
 import { selectLastSeenSpotifyDate, selectSeenArticles } from "../../redux/selectors";
-import spotifyWhite from "../../resources/spotify-white.png";
+import spotifyWhiteLogo from "../../resources/spotify-white.png";
 import { dayDifference, navigateExternal, now } from "../../utils";
 import { navigateArticleList } from "../pages/ArticlesListPage";
 import {
@@ -36,6 +36,8 @@ import {
 } from "./LinkButtons";
 import Logo from "./Logo";
 
+
+const logoSize = 25;
 
 const styles: Record<string, CSSProperties> = {
     Logo: {
@@ -198,7 +200,7 @@ export default () => {
                                     }}
                                 >
                                     <Badge badgeContent={numUnseenSpotifyTracks} color="warning">
-                                        <Image src={spotifyWhite} width={25} height={25}/>
+                                        <Image src={spotifyWhiteLogo} width={logoSize} height={logoSize}/>
                                     </Badge>
                                 </IconButton>
                             </Tooltip>

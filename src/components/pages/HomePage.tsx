@@ -1,10 +1,14 @@
 import { Container } from "@mui/material";
 import * as React from "react";
 import { CSSProperties } from "react";
-import { Col, Row } from "react-bootstrap";
+import { Col, Image, Row } from "react-bootstrap";
 import { getRecentBlogs } from "../../articles";
+import photo from "../../resources/lawrence.png";
 import { BlogStub, LinkButtons, Logo, RadioStatementsCarousel, Title } from "../molecules";
 
+
+const photoWidth = 300;
+const photoHeight = 300;
 
 const styles: Record<string, CSSProperties> = {
     Container: {
@@ -81,6 +85,16 @@ const HomePage = () => {
                     </i>
                 </p>
             </Container>
+
+            <Image src={photo} width={photoWidth} height={photoHeight} style={{borderRadius: 200}}/>
+
+            <p>
+                Hey I'm Lawrence and I created this podcast to improve people's lives. I remember becoming really
+                disillusioned with many things like work and education so I thought I'd create my own self-education
+                project which has evolved into a lot of my own thoughts about how we should live our life to the
+                fullest. The fun thing about this podcast is that it'll never end as I'll always be curious about the
+                art of self-improvement.
+            </p>
 
             <LinkButtons/>
 
