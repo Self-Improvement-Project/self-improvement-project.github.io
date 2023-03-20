@@ -29,3 +29,24 @@
     - `styles` css styling of html
     - `tests` tests to test the React components
     - `utils` common utility methods
+
+### Prerequisites
+
+- Install `nvm`
+- Install `yarn`
+
+### Installation
+
+- Use correct version of node with: `nvm use`
+- Install node dependencies with: `yarn install`
+
+### Development
+
+- Run the webpage locally with: `yarn run`
+- Make changes you want to see
+
+### Deploying
+
+- Ensure to build webpage with: `yarn build`
+- Commit to `main` branch
+- Github Pages will auto deploy the updated webpage

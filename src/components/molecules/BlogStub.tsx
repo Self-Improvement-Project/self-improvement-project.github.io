@@ -59,12 +59,12 @@ const BlogStub = (props: Props) => {
     return (
         <Box style={styles.Box}>
             <Link to={`${ROUTES.ARTICLES}/${props.blog.id}`} style={styles.Link}>
-                <h4>
+                <h5>
                     {unseen && (
                         <UnreadCircle/>
                     )}
                     {props.blog.title}
-                </h4>
+                </h5>
             </Link>
             <p>
                 {props.blog.excerpt}

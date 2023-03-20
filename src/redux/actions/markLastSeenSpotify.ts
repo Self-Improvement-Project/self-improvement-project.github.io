@@ -1,4 +1,5 @@
-import { NullableDateNumber, SpotifyActionTypes } from "../reducers/lastSeenSpotifyReducer";
+import { NullableDateNumber } from "../../typing";
+import { SpotifyActionTypes } from "../reducers";
 
 
 export interface SetLastSeenSpotifyAction {

@@ -1,5 +1,5 @@
 import { EmailRounded, GitHub, Twitter, YouTube } from "@mui/icons-material";
-import { Box, IconButton, Tooltip } from "@mui/material";
+import { Container, IconButton, Tooltip } from "@mui/material";
 import * as React from "react";
 import { CSSProperties } from "react";
 import { Col, Image, Row } from "react-bootstrap";
@@ -21,10 +21,6 @@ const styles: Record<string, CSSProperties> = {
         fontStyle: "italic",
         border: "1px solid",
         borderColor: "#b7b7b7"
-        // position: "fixed",
-        // bottom: 0,
-        // width: "100%",
-        // height: "2.5rem"
     },
     centered: {
         textAlign: "center"
@@ -57,7 +53,7 @@ const Footer = () => {
         dispatch(markLastSeenSpotify(now()));
     };
     return (
-        <Box style={styles.Footer}>
+        <Container maxWidth="md" style={styles.Footer}>
             <Row>
                 <Col sm>
                     <CopyrightText>
@@ -123,7 +119,7 @@ const Footer = () => {
                     </IconGroup>
                 </Col>
             </Row>
-        </Box>
+        </Container>
     );
 };
 

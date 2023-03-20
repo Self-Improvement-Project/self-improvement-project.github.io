@@ -1,4 +1,4 @@
-import { EmailRounded, Twitter, YouTube } from "@mui/icons-material";
+import { EmailRounded, GitHub, Twitter, YouTube } from "@mui/icons-material";
 import { IconButton, Tooltip } from "@mui/material";
 import * as React from "react";
 import { CSSProperties } from "react";
@@ -90,6 +90,7 @@ const LinkButtons = () => {
                     <Image src={mediumLogo} width={logoSize} height={logoSize}/>
                 </IconButton>
             </Tooltip>
+            <Divider> • </Divider>
             <Tooltip title="Email">
                 <IconButton
                     style={styles.DarkClick}
@@ -104,6 +105,14 @@ const LinkButtons = () => {
                     href={TWITTER_LINK}
                 >
                     <Twitter/>
+                </IconButton>
+            </Tooltip>
+            <Tooltip title="Github">
+                <IconButton
+                    style={styles.DarkClick}
+                    href={GITHUB_LINK}
+                >
+                    <GitHub/>
                 </IconButton>
             </Tooltip>
         </div>

@@ -8,7 +8,7 @@ import {
     PersonOutlined
 } from "@mui/icons-material";
 import MenuIcon from "@mui/icons-material/Menu";
-import { Menu, MenuItem, Tooltip } from "@mui/material";
+import { Badge, Menu, MenuItem, Tooltip } from "@mui/material";
 import AppBar from "@mui/material/AppBar";
 import Box from "@mui/material/Box";
 import IconButton from "@mui/material/IconButton";
@@ -20,8 +20,8 @@ import { useDispatch, useSelector } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
 import styled from "styled-components";
 import { Blogs } from "../../articles";
-import { markLastSeenSpotify } from "../../redux/actions";
-import { selectLastSeenSpotifyDate, selectSeenArticles } from "../../redux/selectors";
+import { markLastSeenNewsletter, markLastSeenSpotify } from "../../redux/actions";
+import { selectLastSeenNewsletterDate, selectLastSeenSpotifyDate, selectSeenArticles } from "../../redux/selectors";
 import spotifyWhiteLogo from "../../resources/spotify-white.png";
 import { dayDifference, navigateExternal, now } from "../../utils";
 import { navigateArticleList } from "../pages/ArticlesListPage";
@@ -75,6 +75,17 @@ const RightSection = styled.div``;
 export default () => {
     const seenArticles = useSelector(selectSeenArticles);
     const lastSeenSpotify = useSelector(selectLastSeenSpotifyDate);
+    const lastSeenNewsletter = useSelector(selectLastSeenNewsletterDate);
+
+    const hasVisitedNewsletter = useMemo(() => {
+        if (lastSeenNewsletter !== null) {
+            const DAYS_SPAN = 7;
+            const daysSince = dayDifference(lastSeenNewsletter);
+            return daysSince < DAYS_SPAN;
+        } else {
+            return false;
+        }
+    }, [ lastSeenNewsletter ]);
 
     const numUnseenArticles = useMemo(() => {
         return Blogs.length - seenArticles.length;
@@ -96,9 +107,15 @@ export default () => {
         }
     }, [ lastSeenSpotify ]);
 
+    const hasUnseenSpotifyTracks = numUnseenSpotifyTracks === 0;
+    const hasUnseenArticles = numUnseenArticles === 0;
+
     const dispatch = useDispatch();
     const setLastSeenSpotifyFn = () => {
         dispatch(markLastSeenSpotify(now()));
+    };
+    const setLastSeenNewsletterFn = () => {
+        dispatch(markLastSeenNewsletter(now()));
     };
 
     const navigate = useNavigate();
@@ -193,13 +210,16 @@ export default () => {
                                     size="large"
                                     style={styles.LightClick}
                                     onClick={() => {
-                                        navigateExternal(PODCAST_LINK);
+                                        setLastSeenNewsletterFn();
+                                        navigateExternal(NEWSLETTER_LINK);
                                     }}
                                 >
-                                    <Message/>
+                                    <Badge invisible={hasVisitedNewsletter} color="warning" variant="dot">
+                                        <Message/>
+                                    </Badge>
                                 </IconButton>
                             </Tooltip>
-                            <Tooltip title="Unread Articles">
+                            <Tooltip title={`${numUnseenArticles} Unread Articles`}>
                                 <IconButton
                                     size="large"
                                     aria-label={`${numUnseenArticles} new notifications`}
@@ -208,9 +228,9 @@ export default () => {
                                         navigateArticleList(navigate, {filter: "Unread"});
                                     }}
                                 >
-                                    {/*<Badge badgeContent={numUnseenArticles} color="warning">*/}
-                                    <LibraryBooks/>
-                                    {/*</Badge>*/}
+                                    <Badge invisible={hasUnseenArticles} color="warning" variant="dot">
+                                        <LibraryBooks/>
+                                    </Badge>
                                 </IconButton>
                             </Tooltip>
                             <Tooltip title="Spotify">
@@ -223,9 +243,9 @@ export default () => {
                                         navigateExternal(PODCAST_LINK);
                                     }}
                                 >
-                                    {/*<Badge badgeContent={numUnseenSpotifyTracks} color="warning">*/}
-                                    <Image src={spotifyWhiteLogo} width={logoSize} height={logoSize}/>
-                                    {/*</Badge>*/}
+                                    <Badge invisible={hasUnseenSpotifyTracks} color="warning" variant="dot">
+                                        <Image src={spotifyWhiteLogo} width={logoSize} height={logoSize}/>
+                                    </Badge>
                                 </IconButton>
                             </Tooltip>
                         </Box>

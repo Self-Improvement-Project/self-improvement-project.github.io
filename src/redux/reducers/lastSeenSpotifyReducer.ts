@@ -1,4 +1,5 @@
 import { Reducer } from "redux";
+import { NullableDateNumber } from "../../typing";
 import { SetLastSeenSpotifyAction } from "../actions";
 
 
@@ -6,7 +7,6 @@ export enum SpotifyActionTypes {
     SET_LAST_SEEN_SPOTIFY = "SET_LAST_SEEN_SPOTIFY"
 }
 
-export type NullableDateNumber = number | null;
 const defaultState: NullableDateNumber = null;
 
 export const lastSeenSpotifyReducer: Reducer<NullableDateNumber, SetLastSeenSpotifyAction> =
