@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/static/css/main.b46989a2.css",
-    "main.js": "/static/js/main.d5892fd1.js",
+    "main.js": "/static/js/main.ff05aa89.js",
     "static/js/787.9e0c1f39.chunk.js": "/static/js/787.9e0c1f39.chunk.js",
     "static/media/white-simple-podcast-review-instagram-story.png": "/static/media/white-simple-podcast-review-instagram-story.2aecf85edb3609f9bccd.png",
     "static/media/white-simple-podcast-review-instagram-story-2.png": "/static/media/white-simple-podcast-review-instagram-story-2.338cc06d2701c5d6216a.png",
@@ -32,11 +32,11 @@
     "index.html": "/index.html",
     "static/media/Book_Recommendations_For_Starting_Self_Development.md": "/static/media/Book_Recommendations_For_Starting_Self_Development.bb64f4436ef2756b585b.md",
     "main.b46989a2.css.map": "/static/css/main.b46989a2.css.map",
-    "main.d5892fd1.js.map": "/static/js/main.d5892fd1.js.map",
+    "main.ff05aa89.js.map": "/static/js/main.ff05aa89.js.map",
     "787.9e0c1f39.chunk.js.map": "/static/js/787.9e0c1f39.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.b46989a2.css",
-    "static/js/main.d5892fd1.js"
+    "static/js/main.ff05aa89.js"
   ]
 }

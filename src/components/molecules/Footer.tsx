@@ -53,7 +53,7 @@ const Footer = () => {
         dispatch(markLastSeenSpotify(now()));
     };
     return (
-        <Container maxWidth="md" style={styles.Footer}>
+        <Container maxWidth="xl" style={styles.Footer}>
             <Row>
                 <Col sm>
                     <CopyrightText>
